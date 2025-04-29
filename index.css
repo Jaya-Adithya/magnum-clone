@@ -4,6 +4,7 @@
     min-height: 100vh;
     background-color: #1d2246;
     overflow: hidden;
+    padding-top: 100px; /* Add padding equal to navbar height */
 }
 
 .main-container::before {
@@ -27,12 +28,17 @@
 .nav-bar{
     width: 100%;
     height: 100px;
-    opacity: 0.95;
+    opacity: 1; /* Changed from 0.95 to remove transparency */
     background-color: #151938;
-    box-shadow: 0px 2px 10px rgba(0,0,0,0.06);
-    mix-blend-mode: darken;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.06); /* Restore original shadow */
+    mix-blend-mode: normal; /* Changed from darken to prevent transparency issues */
     font-size: 18px;
     font-family: poppins;
+    position: fixed; /* Make navbar fixed */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure navbar stays on top */
+    transition: all 0.3s ease;
 }
 
 .btn-primary, .apply-btn, .cta-button {
@@ -93,14 +99,23 @@
 
 .hero-content {
     max-width: 600px;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    text-align: center;
 }
 
 .hero-content h1 {
     font-size: 48px;
     line-height: 1.2;
+    text-align: center;
 }
 
+.hero-content .mt-5 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
 .magnum-text {
     font-weight: 700;
@@ -1595,6 +1610,144 @@
 }
 
 @media (max-width: 768px) {
+    /* Adjust navbar for mobile */
+    .nav-bar {
+        height: 80px; /* Smaller height on mobile */
+    }
+    
+    /* Adjust main container padding for mobile navbar */
+    .main-container {
+        padding-top: 80px;
+        padding-bottom: 30px; /* Add back the bottom padding */
+    }
+    
+    /* Ensure the navbar dropdown stays on top */
+    .navbar-collapse {
+        background-color: #151938;
+        padding: 15px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    /* Mobile nav items spacing */
+    .navbar-nav {
+        padding: 10px 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mobile button styling */
+    .navbar-nav .btn-primary {
+        margin: 15px auto;
+        display: block;
+        width: 80%;
+    }
+    
+    /* Remove speech connector on mobile */
+    .speech-connector {
+        display: none;
+    }
+    
+    /* Fix overlapping issues in carousel */
+    .carousel-item {
+        flex-direction: column-reverse;
+        padding-bottom: 80px; /* Add space for carousel controls */
+    }
+    
+    /* Increase spacing between person image and text to prevent overlap */
+    .person-image-container {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 50px; /* Increased from 30px to 50px */
+        padding-bottom: 20px; /* Added padding at the bottom */
+    }
+    
+    /* Add more space at the top of the thought bubble */
+    .thought-bubble-container {
+        width: 100%;
+        margin-bottom: 40px;
+        padding: 20px 20px 0; /* Added top padding */
+    }
+    
+    /* Give the thought bubble better spacing */
+    .thought-bubble {
+        width: 100%;
+        padding: 0;
+        margin-top: 15px; /* Added top margin */
+    }
+    
+    .thought-bubble h3 {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .thought-bubble a {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    /* Position carousel controls at the bottom with better visibility */
+    .carousel-nav-outer {
+        position: absolute;
+        bottom: 20px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(25, 32, 66, 0.7);
+        padding: 10px 15px;
+        border-radius: 30px;
+    }
+    
+    /* Make the carousel controls more prominent */
+    .carousel-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Make the number smaller on mobile */
+    .arrow-text {
+        font-size: 24px;
+        margin: 0 10px;
+    }
+    
+    #current-slide {
+        font-size: 24px;
+    }
+    
+    .hero-content h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding: 30px 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .hero-content .mt-5 {
+        margin-top: 1.5rem !important;
+    }
+    
+    .main-container {
+        padding-top: 80px;
+    }
+    
+    /* Restore other mobile adjustments */
     .cta-container {
         padding: 40px 20px;
     }
@@ -1603,34 +1756,128 @@
         font-size: 32px;
     }
     
-    /* Mobile adjustments for hero section */
-    .thought-bubble {
-        width: 100%;
-        padding: 1rem;
+    /* Improve Resources Section Mobile Spacing */
+    .resources-section {
+        padding: 50px 0;
     }
     
-    .thought-bubble h3 {
-        font-size: 28px;
+    .resources-content {
+        padding: 0 15px;
     }
     
-    .person-image-container {
-        width: 100%;
-        justify-content: center;
+    .resources-content h2 {
+        margin-bottom: 30px;
     }
     
-    .thought-bubble-container {
-        width: 100%;
-        margin-bottom: 60px;
+    .resources-carousel-wrapper {
+        padding: 0 10px;
     }
     
-    .carousel-item {
-        flex-direction: column-reverse;
-    }
-    
-    /* Make resource cards more mobile-friendly */
     .resource-card {
         min-width: 280px;
         margin: 0 10px 20px;
+        height: auto;
+    }
+    
+    .resource-content {
+        padding: 15px;
+    }
+    
+    /* Improve Get Started Section Spacing */
+    .get-started-section {
+        padding: 50px 0;
+    }
+    
+    .get-started-section h2 {
+        padding: 0 15px;
+        margin-bottom: 15px;
+    }
+    
+    .get-started-section p,
+    .get-started-section .how-it-works {
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+    
+    .process-steps-container {
+        padding: 20px 10px 0;
+    }
+    
+    .process-step {
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+    
+    .process-step p {
+        padding: 0 10px;
+    }
+    
+    .step-icon {
+        margin-bottom: 15px;
+    }
+    
+    /* Improve spacing in other sections */
+    .credit-score-section,
+    .fico-impact-section,
+    .not-best-option-section,
+    .credit-importance-section,
+    .help-section {
+        padding: 50px 0;
+    }
+    
+    .fico-impact-content {
+        padding: 30px 15px;
+    }
+    
+    .fico-impact-text {
+        padding-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .not-best-option-content {
+        padding: 0 15px;
+    }
+    
+    .not-best-option-text {
+        padding-right: 0;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .credit-info-box {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    /* Adjusted plan spacing for mobile */
+    .pricing-plan {
+        margin-bottom: 25px;
+        max-width: 300px;
+    }
+    
+    .plan-price-container {
+        padding: 15px;
+    }
+    
+    .plan-features {
+        padding: 15px;
+    }
+    
+    .plan-actions {
+        padding: 15px;
+    }
+    
+    /* General section title improvements */
+    section h2 {
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+    
+    /* Better spacing for section text */
+    section p {
+        line-height: 1.5;
+        padding: 0 15px;
     }
     
     /* Plan tabs mobile adjustment */
@@ -1665,6 +1912,22 @@
     
     .carousel-nav-btn span {
         font-size: 24px;
+    }
+    
+    /* Footer nav column adjustments */
+    .footer-nav-column {
+        min-width: 50%;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
     }
 }
 
@@ -1869,7 +2132,7 @@
 /* Credit Info Box Animation */
 .credit-info-box {
     position: relative;
-    overflow: hidden;
+        overflow: hidden;
     background-color: #192042;
     padding: 30px;
     min-height: 200px;
@@ -2082,7 +2345,7 @@
 .help-section-content h2 {
     font-size: 42px;
     color: #ffffff;
-    margin-bottom: 20px;
+        margin-bottom: 20px;
     font-family: Poppins;
     font-weight: 500;
     opacity: 0;
@@ -2510,6 +2773,72 @@
 .carousel-prev span {
     transform: rotate(180deg);
 }
+
+/* Preserve original nav link styling */
+.navbar-nav .nav-link {
+    color: #ffffff; /* Ensure text is white */
+    padding: 0.5rem 1rem;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    opacity: 0.8;
+}
+
+/* Logo size adjustment */
+.navbar-brand img {
+    height: 40px; /* Reduce logo height */
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    /* Make logo smaller on mobile */
+    .navbar-brand img {
+        height: 35px;
+    }
+    
+    /* Keep dropdown within navbar boundaries */
+    .navbar-collapse {
+        background-color: #151938;
+        padding: 10px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(255,255,255,0.05);
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    
+    /* Mobile nav items spacing - preserving original styling */
+    .navbar-nav {
+        padding: 5px 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 10px 15px;
+        color: #ffffff; /* Ensure text is white */
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    /* Mobile button styling - maintaining original style */
+    .navbar-nav .btn-primary {
+        margin: 10px 15px;
+        display: inline-block;
+    }
+
+    /* Below are existing mobile styles */
+}
+
+
+/* End of CSS file */
+
 
 
 
