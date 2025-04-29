@@ -219,9 +219,15 @@ function showResourceSlide(slideIndex) {
 // Handle pricing tab switching
 function initPricingTabs() {
     const tabs = document.querySelectorAll('.plan-tab');
+    const feeBasedPlans = document.querySelector('.fee-based-plans');
+    const depositBasedPlans = document.querySelector('.deposit-based-plans');
     
-    if (tabs.length) {
-        tabs.forEach(tab => {
+    if (tabs.length && feeBasedPlans && depositBasedPlans) {
+        // Initialize - show fee-based plans by default
+        feeBasedPlans.style.display = 'flex';
+        depositBasedPlans.style.display = 'none';
+        
+        tabs.forEach((tab, index) => {
             tab.addEventListener('click', function() {
                 // Remove active class from all tabs
                 tabs.forEach(t => t.classList.remove('active'));
@@ -229,9 +235,18 @@ function initPricingTabs() {
                 // Add active class to clicked tab
                 this.classList.add('active');
                 
-                console.log("Switched to plan tab:", this.textContent);
-                // In a real implementation, would switch between Fee-based and Deposit-based plans
-                // For now, we just update the UI to show the tab is selected
+                // Toggle the appropriate plans based on selected tab
+                if (index === 0) {
+                    // Fee Based Credit (first tab)
+                    feeBasedPlans.style.display = 'flex';
+                    depositBasedPlans.style.display = 'none';
+                    console.log("Switched to Fee Based Credit plans");
+                } else {
+                    // Free with Deposit (second tab)
+                    feeBasedPlans.style.display = 'none';
+                    depositBasedPlans.style.display = 'flex';
+                    console.log("Switched to Free with Deposit plans");
+                }
             });
         });
     }

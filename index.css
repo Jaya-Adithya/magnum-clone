@@ -143,7 +143,7 @@
 
 .speech-connector {
     position: absolute;
-    top: 10%;
+    top: 0;
     right: 10px;
     width: 50px;
     height: 210px;
@@ -190,10 +190,12 @@
 }
 .arrow-text{
     font-size: 40px;
+    color: #ffffff;
+    margin: 0 10px;
 }
 .carousel-prev, .carousel-next {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
     color:#4580c0;
@@ -205,17 +207,33 @@
 }
 
 .arrow-size{
-    height: 30px;
-    width: 30px;
-}f
+    height: 40px;
+    width: 35px;
+}
 
 .carousel-prev:hover, .carousel-next:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
 .carousel-prev span, .carousel-next span {
-    font-size: 24px;
-    line-height: 1;
+    background-image: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745903022/MaterialIcon_2_bf0tuu.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 0; /* Hide the original text character */
+    filter: invert(45%) sepia(60%) saturate(434%) hue-rotate(184deg) brightness(95%) contrast(91%); /* Blue color filter */
+}
+
+/* Adjust for the prev buttons to flip the arrow */
+.carousel-prev span {
+    transform: rotate(180deg);
+}
+
+.carousel-prev span {
+    transform: rotate(180deg);
 }
 
 .credit-score-section {
@@ -446,6 +464,12 @@
     padding: 50px 30px;
     position: relative;
     overflow: hidden;
+    transform: scale(0); /* Start small */
+    opacity: 0; /* Start hidden */
+    transform-origin: top left;
+    visibility: visible;
+    /* box expand delayed until border draw completes (1s) */
+    animation: expandBox 2s ease-out 1s forwards; /* Box expand animation */
 }
 
 .fico-impact-container {
@@ -465,6 +489,9 @@
     z-index: 5;
     position: relative;
     padding-right: 30px;
+    opacity: 0;
+    transform: translateX(-20px); /* Start off-screen */
+    animation: fadeInText 1s ease-out 3s forwards; /* Fade-in animation for text */
 }
 
 .fico-impact-text h2 {
@@ -489,6 +516,9 @@
 .fico-impact-image {
     max-width: 550px;
     margin: 0;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInImage 1s ease-out 3.5s forwards; /* Image fade-in after text */
 }
 
 .fico-impact-image img {
@@ -502,10 +532,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100px;
+    width: 0;
     height: 5px;
-    background-color: #1F92C3;
-    border-radius: 0 0 5px 0;
+    animation: drawH 0.5s ease-out 0s forwards;
 }
 
 .fico-impact-content::after {
@@ -514,9 +543,8 @@
     top: 0;
     left: 0;
     width: 5px;
-    height: 100px;
-    background-color: #1F92C3;
-    border-radius: 0 0 5px 0;
+    height: 0;
+    animation: drawV 0.5s ease-out 0.5s forwards;
 }
 
 .chart-container {
@@ -662,11 +690,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
 }
 
 .not-best-option-text {
     max-width: 500px;
     padding-right: 40px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInText 1s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
 .not-best-option-text h2 {
@@ -684,6 +720,10 @@
 
 .reasons-list {
     max-width: 550px;
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInImage 1s ease-out forwards;
+    animation-delay: 1.2s;
 }
 
 .reason-item {
@@ -694,6 +734,23 @@
     position: relative;
     display: flex;
     align-items: flex-start;
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.reason-item:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 1.6s;
+}
+
+.reason-item:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 1.9s;
+}
+
+.reason-item:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 2.2s;
 }
 
 .reason-icon {
@@ -854,6 +911,9 @@
     margin-bottom: 20px;
     font-family: Poppins;
     font-weight: 500;
+    opacity: 0;
+    transform: translateY(-30px); /* Start from above */
+    animation: fadeInDown 1s ease-out forwards 0.3s; /* Animation: fade down */
 }
 
 .help-section-content h2 .magnum-text {
@@ -865,6 +925,9 @@
     color: #ffffff;
     margin-bottom: 40px;
     font-family: Poppins;
+    opacity: 0;
+    transform: translateY(-30px); /* Start from above */
+    animation: fadeInDown 1s ease-out forwards 0.6s; /* Animation: fade down */
 }
 
 .plan-tabs {
@@ -872,6 +935,9 @@
     justify-content: center;
     margin-bottom: 50px;
     position: relative;
+    opacity: 0;
+    transform: translateY(-30px); /* Start from above */
+    animation: fadeInDown 1s ease-out forwards 0.9s; /* Animation: fade down */
 }
 
 .plan-tabs::after {
@@ -917,15 +983,37 @@
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+    animation: fadeInUp 1s ease-out forwards 1.2s; /* Animation: fade up */
 }
 
-.pricing-plan {
-    background-color: #1a2040;
+.fee-based-plans, .deposit-based-plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.deposit-based-plans {
+    display: none; /* Hidden by default */
+}
+
+/* Each Plan Card Animation (From Bottom to Top with Delay) */
+.pricing-plan { 
+    background-image: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745901201/Rectangle_4_fcm7ji.svg');
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
+    border: 1px solid #4580c0;
     overflow: hidden;
     width: 100%;
     max-width: 330px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(30px); /* Start from below */
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .plan-header {
@@ -1111,6 +1199,29 @@
     
     .pricing-plan {
         margin-bottom: 20px;
+        max-width: 100%;
+    }
+    
+    .chart-container {
+        padding: 0 20px;
+    }
+    
+    .donut-chart {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 30px;
+    }
+    
+    .factors-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .factor-item {
+        width: 45%;
+        font-size: 13px;
     }
 }
 
@@ -1154,8 +1265,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 0.5px solid #ffffff;
     border-radius: 50%;
@@ -1181,7 +1292,7 @@
 
 .carousel-nav-btn span {
     color: white;
-    font-size: 24px;
+    font-size: 30px;
     line-height: 1;
 }
 
@@ -1491,294 +1602,250 @@
     .cta-content h2 {
         font-size: 32px;
     }
-}
-
-.footer {
-    background-color: #000000;
-    padding: 50px 0 20px;
-    color: #ffffff;
     
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 30px;
-}
-
-.footer-nav {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer-nav-column {
-    margin-right: 80px;
-    margin-bottom: 30px;
-}
-
-.footer-nav-column:last-child {
-    margin-right: 0;
-}
-
-.footer-nav-heading {
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: #ffffff;
-    font-family: Poppins;
-}
-
-.footer-nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-nav-links li {
-    margin-bottom: 10px;
-}
-
-.footer-nav-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 14px;
-    font-family: Poppins;
-    transition: color 0.3s ease;
-}
-
-.footer-nav-links a:hover {
-    color: #ffffff;
-}
-
-.footer-social {
-    margin-bottom: 30px;
-}
-
-.social-icons {
-    display: flex;
-}
-
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 0.5px solid #ffffff;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.social-icon:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.social-icon img {
-    width: 20px;
-    height: 20px;
-}
-
-.footer-disclaimers {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    line-height: 1.5;
-    margin-bottom: 30px;
-    font-family: Poppins;
-}
-
-.disclaimer-text {
-    margin-bottom: 20px;
-}
-
-.footer-bottom {
-    padding-top: 20px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    text-align: left;
-    font-family: Poppins;
-}
-
-@media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
+    /* Mobile adjustments for hero section */
+    .thought-bubble {
+        width: 100%;
+        padding: 1rem;
     }
     
-    .footer-nav {
+    .thought-bubble h3 {
+        font-size: 28px;
+    }
+    
+    .person-image-container {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .thought-bubble-container {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    
+    .carousel-item {
+        flex-direction: column-reverse;
+    }
+    
+    /* Make resource cards more mobile-friendly */
+    .resource-card {
+        min-width: 280px;
+        margin: 0 10px 20px;
+    }
+    
+    /* Plan tabs mobile adjustment */
+    .plan-tabs {
         flex-direction: column;
+        gap: 10px;
         margin-bottom: 30px;
     }
     
-    .footer-nav-column {
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-}
-
-/* Updated carousel styles to match design */
-.person-image {
-    width: 529px;
-    height: 550px;
-    object-fit: cover;
-    object-position: top;
-    
-}
-
-.testimonial-overlay,
-.testimonial-text,
-.carousel-nav-custom,
-.carousel-counter,
-.current-slide {
-    display: none;
-}
-
-.carousel-nav-outer {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    z-index: 10;
-}
-
-.carousel-nav {
-    /* background-color: rgba(0, 0, 0, 0.3); */
-    border-radius: 20px;
-    padding: 5px 15px;
-    display: inline-flex;
-    align-items: center;
-}
-
-/* For center news card without image */
-.resource-card.no-image .resource-content {
-    padding-top: 40px;
-    height: 100%;
-}
-
-@media (max-width: 992px) {
-    .resources-carousel {
-        padding: 0 30px;
+    .plan-tab {
+        margin: 0;
+        padding: 8px 15px;
     }
     
-    .carousel-prev {
-        left: 0;
+    .plan-tab.active::after {
+        bottom: -2px;
     }
     
-    .carousel-next {
-        right: 0;
+    /* Section heading size adjustments */
+    .help-section-content h2,
+    .resources-content h2,
+    .credit-importance-content h2,
+    .not-best-option-text h2 {
+        font-size: 32px;
     }
     
-    .resource-card {
-        flex: 0 0 calc(100% - 40px);
-        max-width: 100%;
-        height: auto;
-        min-height: 400px;
+    /* Carousel navigation adjustments */
+    .carousel-nav-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav-btn span {
+        font-size: 24px;
     }
 }
 
-.section-divider {
-    position: relative;
-    width: 100%;
-    height: 120px;
-    margin: 0;
-    padding: 0;
-    opacity: 0.8;
-    overflow: hidden;
+/* Keep only one set of keyframes for animations */
+@keyframes drawH {
+    from { width: 0; }
+    to { width: 100px; }
 }
 
-.section-divider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+@keyframes drawV {
+    from { height: 0; }
+    to { height: 100px; }
 }
 
-@media (max-width: 768px) {
-    .section-divider {
-        height: 80px;
-    }
-}
-
-
-/* ANIMATIONS */
-
-
-@keyframes hero-content {
+@keyframes expandBox {
     from {
-      transform: translateX(30%);
-      opacity: 0; /* Start invisible */
+        transform: scale(0);
+        opacity: 0;
     }
     to {
-      transform: translateX(0);
-      opacity: 1; /* Fully visible */
+        transform: scale(1);
+        opacity: 1;
     }
-  }
+}
+
+@keyframes fadeInText {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes planCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes showBox {
+    to { visibility: visible; }
+}
+
+/* Animation for pricing plans with staggered delays */
+.pricing-plan:nth-child(1) {
+    animation: planCardFadeIn 0.8s ease-out forwards 1.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.pricing-plan:nth-child(2) {
+    animation: planCardFadeIn 0.8s ease-out forwards 1.8s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.pricing-plan:nth-child(3) {
+    animation: planCardFadeIn 0.8s ease-out forwards 2.1s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Animation Classes */
+@keyframes hero-content {
+    from {
+        transform: translateX(30%);
+        opacity: 0; /* Start invisible */
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1; /* Fully visible */
+    }
+}
   
-  .hero-content {
+.hero-content {
     display: inline-block; /* Important for transform */
     animation: hero-content 2s ease-out forwards; /* Match the keyframes name */
-  }
-  
+}
 
 /* Base state - no animation by default */
 .person-image-container,
 .thought-bubble-container {
-  opacity: 0;
+    opacity: 0;
 }
 
 /* When active, animate */
 .carousel-item.active .person-image-container {
-  animation: imageMove 4s ease-out forwards; /* Extended time for up and down */
+    animation: imageMove 4s ease-out forwards; /* Extended time for up and down */
 }
 
 .carousel-item.active .thought-bubble-container {
-  animation: textMove 2s ease-out forwards;
+    animation: textMove 2s ease-out forwards;
 }
 
 /* Keyframes for image (up and down with fade) */
 @keyframes imageMove {
-  0% {
-    transform: translateY(50px);  /* Start below */
-    opacity: 0;
-  }
-  40% {
-    transform: translateY(0);    /* Move up to final position */
-    opacity: 1;
-  }
-  60% {
-    transform: translateY(-10px); /* Slight bounce up */
-    opacity: 1;
-  }
-  80% {
-    transform: translateY(10px);  /* Move down slightly */
-    opacity: 0.7;  /* Start fading as it goes down */
-  }
-  100% {
-    transform: translateY(0);     /* Settle back to original position */
-    opacity: 1;  /* Fully visible again */
-  }
+    0% {
+        transform: translateY(50px);  /* Start below */
+        opacity: 0;
+    }
+    40% {
+        transform: translateY(0);    /* Move up to final position */
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(-10px); /* Slight bounce up */
+        opacity: 1;
+    }
+    80% {
+        transform: translateY(10px);  /* Move down slightly */
+        opacity: 0.7;  /* Start fading as it goes down */
+    }
+    100% {
+        transform: translateY(0);     /* Settle back to original position */
+        opacity: 1;  /* Fully visible again */
+    }
 }
 
 /* Keyframes for text */
 @keyframes textMove {
-  0% {
-    transform: translateX(-30px);  /* Start from left */
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);      /* End at original position */
-    opacity: 1;
-  }
+    0% {
+        transform: translateX(-30px);  /* Start from left */
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);      /* End at original position */
+        opacity: 1;
+    }
 }
-
 
 /* Slide-up + fade animation for the generic .container element */
 .container {
@@ -1786,21 +1853,20 @@
     transform: translateY(20px);
     animation: slideUpFade 1s ease-out forwards;
     animation-delay: 0.5s; /* adjust timing as needed */
-  }
+}
   
-  @keyframes slideUpFade {
+@keyframes slideUpFade {
     from {
-      opacity: 0;
-      transform: translateY(20px);
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
-      opacity: 1;
-      transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-  }
-  
+}
 
-/* Credit Info Box: border first, then box, then text; second box delayed */
+/* Credit Info Box Animation */
 .credit-info-box {
     position: relative;
     overflow: hidden;
@@ -1814,63 +1880,46 @@
     visibility: visible;
     /* box expand delayed until border draw completes (1s) */
     animation: expandBox 2s ease-out 1s forwards;
-  }
+}
   
-  /* Corner accent pseudo-elements */
-  .credit-info-box::before,
-  .credit-info-box::after {
+/* Corner accent pseudo-elements */
+.credit-info-box::before,
+.credit-info-box::after {
     content: "";
     position: absolute;
     background-color: #4580c0;
     z-index: 1;
-  }
-  /* horizontal accent draws first */
-  .credit-info-box::before {
+}
+
+/* horizontal accent draws first */
+.credit-info-box::before {
     top: 0; left: 0;
     width: 0; height: 3px;
     animation: drawH 0.5s ease-out 0s forwards;
-  }
-  /* vertical accent draws next */
-  .credit-info-box::after {
+}
+
+/* vertical accent draws next */
+.credit-info-box::after {
     top: 0; left: 0;
     width: 3px; height: 0;
     animation: drawV 0.5s ease-out 0.5s forwards;
-  }
+}
   
-  /* text fade delayed until box expand completes (1s border +2s box =3s) */
-  .credit-info-box .magnum-text,
-  .credit-info-box p {
+/* text fade delayed until box expand completes (1s border +2s box =3s) */
+.credit-info-box .magnum-text,
+.credit-info-box p {
     opacity: 0;
     transform: translateX(-20px);
     animation: fadeInText 1s ease-out 3s forwards;
-  }
+}
   
-  /* second box hidden until first sequence finishes (~4s) */
-  .credit-info-box:nth-of-type(2) {
-    visibility: hidden;
-    animation: showBox 0s linear 4s forwards;
-  }
-  /* once visible, second box follows same sequence offset by 4s */
-  .credit-info-box:nth-of-type(2)::before {
-    animation: drawH 0.5s ease-out 4s forwards;
-  }
-  .credit-info-box:nth-of-type(2)::after {
-    animation: drawV 0.5s ease-out 4.5s forwards;
-  }
-  .credit-info-box:nth-of-type(2) {
-    animation: showBox 0s linear 4s forwards, expandBox 2s ease-out 5s forwards;
-  }
-  .credit-info-box:nth-of-type(2) .magnum-text,
-  .credit-info-box:nth-of-type(2) p {
-    animation: fadeInText 1s ease-out 7s forwards;
-  }
-  
-  @keyframes drawH { from { width: 0; } to { width: 50px; } }
-  @keyframes drawV { from { height: 0; } to { height: 50px; } }
-  @keyframes expandBox { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-  @keyframes fadeInText { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-  @keyframes showBox { to { visibility: visible; } }
-  
+/* Animation keyframes */
+@keyframes drawH { from { width: 0; } to { width: 100px; } }
+@keyframes drawV { from { height: 0; } to { height: 100px; } }
+@keyframes expandBox { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes fadeInText { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes showBox { to { visibility: visible; } }
+
 /* Hide by default */
 .get-started-section .container,
 .process-step,
@@ -1927,12 +1976,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideUpFade {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-  /* FICO Impact Section */
+/* FICO Impact Section */
 .fico-impact-section {
     background-color: #1d2246;
     padding: 80px 0;
@@ -2009,30 +2053,6 @@
     animation: fadeInImage 1s ease-out 3.5s forwards; /* Image fade-in after text */
 }
 
-/* Keyframe for expanding the container (from small box to big) */
-@keyframes expandBox {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Keyframe for fading in text (from left to right) */
-@keyframes fadeInText {
-    from {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
 /* Keyframe for fading in image (from right to left) */
 @keyframes fadeInImage {
     from {
@@ -2044,320 +2064,6 @@
         opacity: 1;
     }
 }
-
-/* Keyframe for horizontal border expansion */
-@keyframes drawH {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100px; /* Adjust the width as needed */
-    }
-}
-
-/* Keyframe for vertical border expansion */
-@keyframes drawV {
-    from {
-        height: 0;
-    }
-    to {
-        height: 100px; /* Adjust the height as needed */
-    }
-}
-
-/* Second box: it will appear after the first box finishes (with some delay) */
-.fico-impact-section:nth-of-type(2) .fico-impact-content {
-    visibility: hidden;
-    animation: showBox 0s linear 4s forwards, expandBox 2s ease-out 5s forwards;
-}
-
-.fico-impact-section:nth-of-type(2) .fico-impact-content::before {
-    animation: drawH 0.5s ease-out 4s forwards;
-}
-
-.fico-impact-section:nth-of-type(2) .fico-impact-content::after {
-    animation: drawV 0.5s ease-out 4.5s forwards;
-}
-
-.fico-impact-section:nth-of-type(2) .fico-impact-text {
-    animation: fadeInText 1s ease-out 7s forwards;
-}
-
-.fico-impact-section:nth-of-type(2) .fico-impact-image {
-    animation: fadeInImage 1s ease-out 7.5s forwards;
-}
-
-/* Keyframe to make the second box visible */
-@keyframes showBox {
-    to {
-        visibility: visible;
-    }
-}
-
-
-/* Not Best Option Section */
-.not-best-option-section {
-    background-color: #1d2246;
-    padding: 80px 0;
-}
-
-/* Not Best Option Content */
-.not-best-option-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    opacity: 0;
-    transform: translateX(-30px); /* Start off-screen */
-    animation: fadeInContent 1s ease-out forwards; /* Fade-in and slide-in animation */
-}
-
-/* Text Section */
-.not-best-option-text {
-    max-width: 500px;
-    padding-right: 40px;
-    opacity: 0;
-    transform: translateX(-20px); /* Start off-screen */
-    animation: slideInText 1s ease-out 1s forwards; /* Slide-in from left and fade */
-}
-
-.not-best-option-text h2 {
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-family: Poppins;
-    font-weight: 500;
-    line-height: 1.2;
-}
-
-.not-best-option-text .magnum-text {
-    font-weight: 700;
-}
-
-/* Reasons List */
-.reasons-list {
-    max-width: 550px;
-}
-
-.reason-item {
-    background-color: rgba(29, 40, 85, 0.7);
-    padding: 25px 30px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    opacity: 0;
-    transform: translateX(20px); /* Start from right */
-    animation: fadeInRight 1s ease-out forwards; /* Fade in and slide from right */
-}
-
-/* Reason Item Delays */
-.reason-item:nth-child(1) {
-    animation-delay: 2s;
-}
-
-.reason-item:nth-child(2) {
-    animation-delay: 2.4s;
-}
-
-.reason-item:nth-child(3) {
-    animation-delay: 2.8s;
-}
-
-.reason-icon {
-    flex-shrink: 0;
-    width: 24px;
-    height: 24px;
-    background-color: #e74c3c;
-    border-radius: 50%;
-    margin-right: 15px;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.reason-text {
-    flex-grow: 1;
-}
-
-.reason-text h3 {
-    color: #ffffff;
-    font-size: 16px;
-    margin-bottom: 5px;
-    font-family: Poppins;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-.reason-text .highlight {
-    color: #ffffff;
-    font-weight: 700;
-}
-
-/* Keyframes for animations */
-
-/* Fade-in and slide-in for content */
-@keyframes fadeInContent {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Fade-in and slide-in for text */
-@keyframes slideInText {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-/* Fade-in from right for reason items */
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-
-/* Credit Importance Section */
-.credit-importance-section {
-    background-color: #1d2246;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.credit-importance-content {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Credit Importance Title (Text Animation) */
-.credit-importance-content h2 {
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    font-family: Poppins;
-    font-weight: 600;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: fadeInUp 1s ease-out forwards 0.5s; /* Animation: fade in and move up */
-}
-
-.credit-importance-content p {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 40px;
-    font-family: Poppins;
-    line-height: 1.6;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    opacity: 0;
-    transform: translateY(30px); /* Start below */
-    animation: fadeInUp 1s ease-out forwards 1s; /* Animation: fade in and move up */
-}
-
-/* Video Container */
-.video-container {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    aspect-ratio: 16 / 9;
-    opacity: 0;
-    transform: translateY(-30px); /* Start above */
-    animation: fadeInUp 1s ease-out forwards 1.5s; /* Animation: fade in and move down */
-}
-
-.thumbnail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 10px;
-}
-
-.video-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 2;
-}
-
-.video-play-button img {
-    width: 100%;
-    height: 100%;
-}
-
-.video-play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.youtube-iframe-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    display: none; /* Initially hidden */
-}
-
-.youtube-iframe-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: #000;
-}
-
-/* Keyframes for the animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px); /* Start below */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* End at the original position */
-    }
-}
-
-
-
-
-
 
 /* Help Section */
 .help-section {
@@ -2410,44 +2116,6 @@
     animation: fadeInDown 1s ease-out forwards 0.9s; /* Animation: fade down */
 }
 
-.plan-tabs::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 1px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.plan-tab {
-    padding: 10px 20px;
-    font-size: 18px;
-    color: #ffffff;
-    font-family: Poppins;
-    cursor: pointer;
-    position: relative;
-    margin: 0 15px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.plan-tab.active {
-    opacity: 1;
-}
-
-.plan-tab.active::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #4580c0;
-    z-index: 1;
-}
-
 /* Pricing Plans Container Animation (From Bottom to Top with Delay) */
 .pricing-plans {
     display: flex;
@@ -2457,209 +2125,6 @@
     opacity: 0;
     transform: translateY(30px); /* Start from below */
     animation: fadeInUp 1s ease-out forwards 1.2s; /* Animation: fade up */
-}
-
-/* Each Plan Card Animation (From Bottom to Top with Delay) */
-.pricing-plan {
-    background-color: #1a2040;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 330px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: translateY(30px); /* Start from below */
-    animation: fadeInUp 1s ease-out forwards;
-}
-
-/* Delay the appearance of each pricing plan */
-.pricing-plan:nth-child(1) {
-    animation-delay: 1.5s;
-}
-
-.pricing-plan:nth-child(2) {
-    animation-delay: 1.9s;
-}
-
-.pricing-plan:nth-child(3) {
-    animation-delay: 2.3s;
-}
-
-/* Pricing Plan Content Styling */
-.plan-header {
-    padding: 10px;
-    background-color: #1d2554;
-    text-align: center;
-    font-family: Poppins;
-}
-
-.plan-header .plan-name {
-    font-size: 18px;
-    color: #4580c0;
-    font-weight: 600;
-}
-
-.plan-price-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.monthly-price {
-    font-size: 24px;
-    color: #ffffff;
-    font-weight: 600;
-    font-family: Poppins;
-    margin-right: 20px;
-}
-
-.total-amount {
-    text-align: left;
-}
-
-.total-amount .amount {
-    font-size: 30px;
-    color: #ffffff;
-    font-weight: 700;
-    font-family: Poppins;
-    line-height: 1.2;
-}
-
-.installment-text {
-    font-size: 14px;
-    color: #ffffff;
-    opacity: 0.7;
-    font-family: Poppins;
-}
-
-.plan-features {
-    padding: 20px;
-    text-align: center;
-}
-
-.plan-feature {
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    font-size: 15px;
-    font-family: Poppins;
-}
-
-.plan-feature:last-child {
-    border-bottom: none;
-}
-
-.plan-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-/* Specific styling for pricing plan buttons */
-.plan-actions .apply-btn {
-    background-color: #346191;
-    padding: 10px 15px;
-    width: 110px; 
-    height: auto;
-    border-radius: 0;
-    color: #ffffff;
-    font-size: 14px;
-    font-family: Poppins;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.plan-actions .apply-btn:hover {
-    background-color: #23405e;
-}
-
-.plan-actions .learn-more-btn {
-    background-color: transparent;
-    border: 1px solid #4580c0;
-    color: #ffffff;
-    padding: 10px 15px;
-    width: 110px;
-    height: auto;
-    font-size: 14px;
-    font-family: Poppins;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    position: relative;
-    overflow: hidden;
-    border-radius: 0;
-}
-
-.plan-actions .learn-more-btn:hover {
-    background-color: rgba(52, 97, 145, 0.2);
-}
-
-.plan-actions .apply-btn::before, .plan-actions .learn-more-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    border-top: 2px solid #3f92eb;
-    border-left: 2px solid #3f92eb;
-    transition: all 0.3s ease;
-}
-
-.plan-actions .apply-btn::after, .plan-actions .learn-more-btn::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 15px;
-    height: 15px;
-    border-bottom: 2px solid #3f92eb;
-    border-right: 2px solid #3f92eb;
-    transition: all 0.3s ease;
-}
-
-.plan-actions .apply-btn:hover::before, .plan-actions .learn-more-btn:hover::before,
-.plan-actions .apply-btn:hover::after, .plan-actions .learn-more-btn:hover::after {
-    width: 100%;
-    height: 100%;
-}
-
-.apply-btn span, .cta-button span, .learn-more-btn span {
-    margin-left: 5px;
-}
-
-/* Amortization Link */
-.amortization-link {
-    margin-top: 40px;
-    text-align: center;
-}
-
-.amortization-link a {
-    color: #ffffff;
-    font-size: 16px;
-    font-family: Poppins;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s ease;
-}
-
-.amortization-link a:hover {
-    color: #4580c0;
-}
-
-.amortization-link a span {
-    margin-left: 5px;
 }
 
 /* Keyframes for Animations */
@@ -2685,160 +2150,43 @@
     }
 }
 
-
-
-
-
-/* Main Resources Section Styling */
-.resources-section {
-    background-color: #1d2246;
-    padding: 80px 0;
-    text-align: center;
+/* Keyframes for the Border Drawing Animations */
+@keyframes drawH {
+    from { width: 0; }
+    to { width: 100px; }
 }
 
-.resources-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
+@keyframes drawV {
+    from { height: 0; }
+    to { height: 100px; }
 }
 
-.resources-content h2 {
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 50px;
-    font-family: Poppins;
-    font-weight: 600;
+/* Keyframes for Box Expansion */
+@keyframes expandBox {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-/* Carousel Wrapper Styling */
-.resources-carousel-wrapper {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
+/* Keyframe for Text Fade-in (from left to right) */
+@keyframes fadeInText {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-/* Carousel Styling */
-.resources-carousel {
-    position: relative;
-    margin: 0 auto;
-    max-width: 1200px;
-    overflow: hidden;
-    padding: 0;
-}
-
-/* Carousel Navigation Buttons Styling */
-.carousel-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 0.5px solid #ffffff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease;
-}
-
-.carousel-nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.carousel-prev {
-    left: 0;
-}
-
-.carousel-next {
-    right: 0;
-}
-
-.carousel-nav-btn span {
-    color: white;
-    font-size: 24px;
-    line-height: 1;
-}
-
-/* Carousel Dots Styling */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin: 0 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.carousel-dot.active {
-    background-color: #4580c0;
-    width: 20px;
-    border-radius: 5px;
-}
-
-/* Carousel Container Styling */
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-    padding: 0 20px;
-}
-
-/* Resource Card Styling */
-.resource-card {
-    flex: 0 0 calc(33.333% - 40px);
-    margin: 0 20px;
-    background-color: #1a2040;
-    border-radius: 10px;
-    overflow: hidden;
-    min-width: 300px;
-    max-width: 300px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    animation: fadeUp 0.7s ease-in-out forwards;
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.resource-card:nth-child(1) {
-    animation-delay: 0s;
-}
-
-.resource-card:nth-child(2) {
-    animation-delay: 0.4s;
-}
-
-.resource-card:nth-child(3) {
-    animation-delay: 0.8s;
-}
-
-.resource-card:nth-child(4) {
-    animation-delay: 1.2s;
-}
-
-.resource-card:nth-child(5) {
-    animation-delay: 1.6s;
-}
-
-.resource-card:nth-child(6) {
-    animation-delay: 2s;
-}
-
-@keyframes fadeUp {
+/* Keyframe for Plan Card Animation */
+@keyframes planCardFadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -2849,317 +2197,318 @@
     }
 }
 
-/* Resource Image Styling */
-.resource-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
+/* Animation for individual pricing plans with staggered delays */
+.pricing-plan:nth-child(1) {
+    animation: planCardFadeIn 0.8s ease-out forwards 1.5s;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.resource-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.pricing-plan:nth-child(2) {
+    animation: planCardFadeIn 0.8s ease-out forwards 1.8s;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.resource-card:hover .resource-image img {
-    transform: scale(1.05);
+.pricing-plan:nth-child(3) {
+    animation: planCardFadeIn 0.8s ease-out forwards 2.1s;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-/* Resource Category Styling */
-.resource-category {
-    font-size: 14px;
-    color: #4580c0;
-    font-weight: 600;
-    text-transform: uppercase;
+/* Sliding up and fading in animation for Get Started section */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for Not Best Option Section */
+.not-best-option-content {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.not-best-option-text {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInText 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.reasons-list {
+    opacity: 0;
+    transform: translateX(20px);
+    animation: fadeInImage 1s ease-out forwards;
+    animation-delay: 1.2s;
+}
+
+.reason-item {
+    opacity: 0;
+    transform: translateY(15px);
+}
+
+.reason-item:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 1.6s;
+}
+
+.reason-item:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 1.9s;
+}
+
+.reason-item:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 2.2s;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #000000;
+    padding: 60px 0 20px;
+    color: #ffffff;
     font-family: Poppins;
-    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.5s;
 }
 
-/* Resource Content Styling */
-.resource-content {
-    padding: 20px;
-    flex-grow: 1;
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-top {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
 }
 
-/* Resource Title Styling */
-.resource-title {
-    font-size: 20px;
-    color: #ffffff;
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.footer-nav-column {
+    flex: 1;
+    min-width: 160px;
+    margin-bottom: 30px;
+    padding-right: 20px;
+}
+
+.footer-nav-heading {
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 15px;
-    line-height: 1.3;
-    font-family: Poppins;
-}
-
-/* Resource Text Styling */
-.resource-text {
-    font-size: 14px;
-    color: #ffffff;
-    opacity: 0.7;
     margin-bottom: 20px;
-    line-height: 1.5;
-    font-family: Poppins;
-    flex-grow: 1;
-    overflow: hidden;
-}
-
-/* Resource Link Styling */
-.resource-link {
-    margin-top: auto;
-    display: inline-flex;
     color: #4580c0;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: Poppins;
-    align-items: center;
+}
+
+.footer-nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav-links li {
+    margin-bottom: 12px;
+}
+
+.footer-nav-links a {
+    color: #ffffff;
+    opacity: 0.8;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-size: 14px;
+    transition: opacity 0.3s ease;
 }
 
-.resource-link:hover {
-    color: #6aa1e2;
+.footer-nav-links a:hover {
+    opacity: 1;
+    color: #4580c0;
 }
 
-.resource-link span {
-    margin-left: 5px;
+.footer-social {
+    width: 30%;
 }
 
-/* Additional Styles for Carousel Indicators */
-.carousel-indicators {
-    position: absolute;
-    bottom: -40px;
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
 }
 
-.carousel-indicators button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    margin: 0 5px;
-}
-
-.carousel-indicators button.active {
-    background-color: #4580c0;
-    width: 20px;
-    border-radius: 5px;
-}
-
-/* Carousel Control Styling */
-.carousel-control-prev,
-.carousel-control-next {
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 1;
+    transition: background-color 0.3s ease;
 }
 
-.carousel-control-prev {
-    left: 0px;
+.social-icon:hover {
+    background-color: rgba(69, 128, 192, 0.3);
 }
 
-.carousel-control-next {
-    right: 0px;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.social-icon img {
     width: 20px;
     height: 20px;
+    filter: brightness(0) invert(1);
 }
 
-/* Additional CSS for better carousel display */
-#testimonialCarousel .carousel-item .d-flex {
+.footer-disclaimers {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 20px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+}
+
+.footer-disclaimers p {
+    margin-bottom: 15px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-logo {
+    height: 40px;
+    opacity: 0.8;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #4580c0;
+}
+
+/* Media queries for footer responsiveness */
+@media (max-width: 992px) {
+    .footer-nav {
+        width: 100%;
+    }
+    
+    .footer-social {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-nav-column {
+        min-width: 50%;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Button arrow styling update */
+.btn-primary span, .apply-btn span, .cta-button span, .learn-more-btn span, 
+.resource-link span {
+    background-image: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745903022/MaterialIcon_2_bf0tuu.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    vertical-align: middle;
+    font-size: 0; /* Hide the original text character */
+}
+
+/* Add specific styling for the slide counter text */
+#current-slide {
+    font-size: 40px;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+/* Carousel navigation positioning and styling */
+.carousel-nav-outer {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    z-index: 10;
+}
+
+.carousel-nav {
+    z-index: 10;
+    display: flex;
     align-items: center;
 }
 
-/* Style adjustments for resource cards in carousel */
-#resourceCarousel .resource-card {
-    height: 100%;
-    margin: 0 10px;
-}
-
-
-.cta-section {
-    background-color: #1d2246;
-    padding: 80px 0;
-    text-align: center;
-}
-
-.cta-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    background-image: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386011/leadership-fea12cdfde7e7e2e1b8303b6194515b7-159c0d.jpeg_hvzc9o.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    overflow: hidden;
-    padding: 60px 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.cta-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(90deg, rgba(29, 34, 70, 0.8) 0%, rgba(29, 34, 70, 0.6) 100%);
-    z-index: 1;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.cta-content h2 {
-    font-size: 42px;
-    color: #ffffff;
-    margin-bottom: 15px;
-    font-family: Poppins;
-    font-weight: 500;
-}
-
-.cta-content h2 .magnum-text {
-    font-weight: 700;
-}
-
-.cta-content p {
-    font-size: 18px;
-    color: #ffffff;
-    margin-bottom: 30px;
-    font-family: Poppins;
-}
-
-.cta-button {
-    display: inline-block;
-    width: 160px;
-    height: 40px;
-    padding: 0px;
-    background-color: #346191;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 500;
-    font-family: Poppins;
-    border-radius: 0;
-    text-decoration: none;
-    transition: all 0.3s ease;
+.carousel-prev, .carousel-next {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #4580c0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border: none;
-    position: relative;
-    overflow: hidden;
-    margin-top: 10px;
+    cursor: pointer;
 }
 
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 15px;
-    height: 15px;
-    border-top: 2px solid #3f92eb;
-    border-left: 2px solid #3f92eb;
-    transition: all 0.3s ease;
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.cta-button::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 15px;
-    height: 15px;
-    border-bottom: 2px solid #3f92eb;
-    border-right: 2px solid #3f92eb;
-    transition: all 0.3s ease;
+.carousel-prev span, .carousel-next span {
+    background-image: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745903022/MaterialIcon_2_bf0tuu.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    font-size: 0; /* Hide the original text character */
+    filter: invert(45%) sepia(60%) saturate(434%) hue-rotate(184deg) brightness(95%) contrast(91%); /* Blue color filter */
 }
 
-.cta-button:hover::before,
-.cta-button:hover::after {
-    width: 100%;
-    height: 100%;
-}
-
-.cta-button:hover {
-    background-color: #23405e;
-}
-
-.cta-button span {
-    margin-left: 5px;
-}
-
-.people-silhouette {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .cta-container {
-        padding: 40px 20px;
-    }
-    
-    .cta-content h2 {
-        font-size: 32px;
-    }
-}
-
-/* Keyframe Animations */
-@keyframes fadeInBackground {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeInContent {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUpText {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideUpButton {
-    0% {
-        transform: translateY(30px); /* Start button from 30px below */
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+/* Adjust for the prev buttons to flip the arrow */
+.carousel-prev span {
+    transform: rotate(180deg);
 }
 
 
