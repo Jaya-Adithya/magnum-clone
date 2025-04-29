@@ -1,3 +1,12 @@
+/* Fix for mobile viewport width issues */
+body, html {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #1d2246;
+}
+
 .main-container {
     position: relative;
     width: 100%;
@@ -5,6 +14,7 @@
     background-color: #1d2246;
     overflow: hidden;
     padding-top: 100px; /* Add padding equal to navbar height */
+    max-width: 100vw; /* Ensure no horizontal overflow */
 }
 
 .main-container::before {
@@ -961,7 +971,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
+    width: 600px;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.2);
 }
@@ -1022,24 +1032,34 @@
     background-position: center;
     border-radius: 10px;
     border: 1px solid #4580c0;
-    overflow: hidden;
+    overflow: visible;
     width: 100%;
     max-width: 330px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(30px); /* Start from below */
     animation: fadeInUp 1s ease-out forwards;
+    margin-top: 35px; /* Added margin-top to account for the floating header */
 }
-
 .plan-header {
-    padding: 10px;
+    padding: 10px 20px;
     background-color: #1d2554;
     text-align: center;
     font-family: Poppins;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
 }
 
+
+
 .plan-header .plan-name {
-    font-size: 18px;
+    font-size: 16px; /* Reduced from 18px */
     color: #4580c0;
     font-weight: 600;
 }
@@ -1048,15 +1068,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 25px 15px 15px; /* Increased top padding to 25px to create more space below the floating header */
 }
 
 .monthly-price {
-    font-size: 24px;
+    font-size: 22px; /* Reduced from 24px */
     color: #ffffff;
     font-weight: 600;
     font-family: Poppins;
-    margin-right: 20px;
+    margin-right: 15px; /* Reduced from 20px */
 }
 
 .total-amount {
@@ -1064,7 +1084,7 @@
 }
 
 .total-amount .amount {
-    font-size: 30px;
+    font-size: 28px; /* Reduced from 30px */
     color: #ffffff;
     font-weight: 700;
     font-family: Poppins;
@@ -1072,22 +1092,22 @@
 }
 
 .installment-text {
-    font-size: 14px;
+    font-size: 13px; /* Reduced from 14px */
     color: #ffffff;
     opacity: 0.7;
     font-family: Poppins;
 }
 
 .plan-features {
-    padding: 20px;
+    padding: 10px 0; /* Reduced from 12px */
     text-align: center;
 }
 
 .plan-feature {
-    padding: 12px 0;
+    padding: 10px 0; /* Reduced from 12px */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    font-size: 15px;
+    font-size: 14px; /* Reduced from 15px */
     font-family: Poppins;
 }
 
@@ -1097,19 +1117,20 @@
 
 .plan-actions {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: center; /* Changed from space-between to center */
+    padding: 15px;
+    gap: 12px; /* Increased gap slightly for better spacing */
 }
 
 /* Specific styling for pricing plan buttons */
 .plan-actions .apply-btn {
     background-color: #346191;
-    padding: 10px 15px;
-    width: 110px; 
+    padding: 8px 10px;
+    width: 120px; /* Increased from 100px to fit text better */
     height: auto;
     border-radius: 0;
     color: #ffffff;
-    font-size: 14px;
+    font-size: 13px;
     font-family: Poppins;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1119,6 +1140,8 @@
     text-decoration: none;
     position: relative;
     overflow: hidden;
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
 }
 
 .plan-actions .apply-btn:hover {
@@ -1129,10 +1152,10 @@
     background-color: transparent;
     border: 1px solid #4580c0;
     color: #ffffff;
-    padding: 10px 15px;
-    width: 110px;
+    padding: 8px 10px;
+    width: 120px; /* Increased from 100px to fit text better */
     height: auto;
-    font-size: 14px;
+    font-size: 13px;
     font-family: Poppins;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1143,6 +1166,8 @@
     position: relative;
     overflow: hidden;
     border-radius: 0;
+    white-space: nowrap; /* Prevent text wrapping */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
 }
 
 .plan-actions .learn-more-btn:hover {
@@ -1613,79 +1638,58 @@
     /* Adjust navbar for mobile */
     .nav-bar {
         height: 80px; /* Smaller height on mobile */
+        width: 100vw; /* Ensure full width */
     }
     
     /* Adjust main container padding for mobile navbar */
     .main-container {
         padding-top: 80px;
-        padding-bottom: 30px; /* Add back the bottom padding */
-    }
-    
-    /* Ensure the navbar dropdown stays on top */
-    .navbar-collapse {
-        background-color: #151938;
-        padding: 15px;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-        position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-    
-    /* Mobile nav items spacing */
-    .navbar-nav {
-        padding: 10px 0;
-    }
-    
-    .navbar-nav .nav-link {
-        padding: 12px 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .navbar-nav .nav-link:last-child {
-        border-bottom: none;
-    }
-    
-    /* Mobile button styling */
-    .navbar-nav .btn-primary {
-        margin: 15px auto;
-        display: block;
-        width: 80%;
-    }
-    
-    /* Remove speech connector on mobile */
-    .speech-connector {
-        display: none;
+        padding-bottom: 30px;
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
     }
     
     /* Fix overlapping issues in carousel */
     .carousel-item {
         flex-direction: column-reverse;
         padding-bottom: 80px; /* Add space for carousel controls */
+        height: auto !important;
     }
     
     /* Increase spacing between person image and text to prevent overlap */
     .person-image-container {
         width: 100%;
         justify-content: center;
-        margin-bottom: 50px; /* Increased from 30px to 50px */
-        padding-bottom: 20px; /* Added padding at the bottom */
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    
+    .person-image {
+        max-height: 300px;
+        margin: 0 auto;
+        object-fit: contain;
     }
     
     /* Add more space at the top of the thought bubble */
     .thought-bubble-container {
         width: 100%;
         margin-bottom: 40px;
-        padding: 20px 20px 0; /* Added top padding */
+        padding: 20px 20px 0;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
     }
     
     /* Give the thought bubble better spacing */
     .thought-bubble {
         width: 100%;
+        max-width: 100%;
         padding: 0;
-        margin-top: 15px; /* Added top margin */
+        margin-top: 15px;
     }
     
     .thought-bubble h3 {
@@ -1709,6 +1713,7 @@
         background-color: rgba(25, 32, 66, 0.7);
         padding: 10px 15px;
         border-radius: 30px;
+        z-index: 100;
     }
     
     /* Make the carousel controls more prominent */
@@ -1718,14 +1723,16 @@
         justify-content: center;
     }
     
-    /* Make the number smaller on mobile */
-    .arrow-text {
+    /* Make the number smaller on mobile and ensure it's white */
+    .arrow-text,
+    #current-slide,
+    .total-slides,
+    .carousel-nav span,
+    .carousel-nav-outer span,
+    .carousel-nav-outer div {
         font-size: 24px;
         margin: 0 10px;
-    }
-    
-    #current-slide {
-        font-size: 24px;
+        color: #ffffff !important;
     }
     
     .hero-content h1 {
@@ -1741,10 +1748,6 @@
     
     .hero-content .mt-5 {
         margin-top: 1.5rem !important;
-    }
-    
-    .main-container {
-        padding-top: 80px;
     }
     
     /* Restore other mobile adjustments */
@@ -1767,20 +1770,43 @@
     
     .resources-content h2 {
         margin-bottom: 30px;
+        font-size: 32px;
     }
     
     .resources-carousel-wrapper {
         padding: 0 10px;
+        overflow: hidden;
     }
     
+    /* Make resource cards stack nicely on mobile */
     .resource-card {
-        min-width: 280px;
-        margin: 0 10px 20px;
+        min-width: 85%;
+        max-width: 85%;
+        margin: 0 auto 20px;
         height: auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
     .resource-content {
         padding: 15px;
+    }
+    
+    /* Carousel navigation on mobile */
+    .carousel-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 20;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-prev {
+        left: 5px;
+    }
+    
+    .carousel-next {
+        right: 5px;
     }
     
     /* Improve Get Started Section Spacing */
@@ -1791,6 +1817,7 @@
     .get-started-section h2 {
         padding: 0 15px;
         margin-bottom: 15px;
+        font-size: 32px;
     }
     
     .get-started-section p,
@@ -1835,6 +1862,10 @@
         text-align: center;
     }
     
+    .fico-impact-text h2 {
+        font-size: 32px;
+    }
+    
     .not-best-option-content {
         padding: 0 15px;
     }
@@ -1843,6 +1874,14 @@
         padding-right: 0;
         margin-bottom: 30px;
         text-align: center;
+    }
+    
+    .not-best-option-text h2 {
+        font-size: 32px;
+    }
+    
+    .reason-item {
+        padding: 20px;
     }
     
     .credit-info-box {
@@ -1854,30 +1893,36 @@
     .pricing-plan {
         margin-bottom: 25px;
         max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .plan-price-container {
-        padding: 15px;
+        padding: 12px; /* Reduced from 15px */
     }
     
     .plan-features {
-        padding: 15px;
+        padding: 10px 0; /* Reduced from 12px */
     }
     
     .plan-actions {
-        padding: 15px;
+        padding: 12px; /* Reduced from 15px */
+        justify-content: center;
+        gap: 10px;
     }
     
     /* General section title improvements */
     section h2 {
         line-height: 1.3;
         padding: 0 10px;
+        font-size: 32px;
     }
     
     /* Better spacing for section text */
     section p {
         line-height: 1.5;
         padding: 0 15px;
+        font-size: 16px;
     }
     
     /* Plan tabs mobile adjustment */
@@ -1894,6 +1939,11 @@
     
     .plan-tab.active::after {
         bottom: -2px;
+    }
+    
+    /* Reduce spacing between sections */
+    section + section {
+        margin-top: -15px;
     }
     
     /* Section heading size adjustments */
@@ -1928,6 +1978,89 @@
     .footer-links {
         flex-direction: column;
         gap: 10px;
+    }
+    
+    /* Adjust button sizes on mobile for pricing plans */
+    .plan-actions .apply-btn,
+    .plan-actions .learn-more-btn {
+        width: 120px;
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    /* Mobile nav items spacing with better visibility */
+    .navbar-nav {
+        padding: 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 15px 20px;
+        color: #ffffff !important;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+        opacity: 1;
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    /* Hide Get Started button in navbar dropdown */
+    .navbar-nav .btn-primary {
+        display: none;
+    }
+    
+    /* Remove speech connector on mobile */
+    .speech-connector {
+        display: none;
+    }
+    
+    /* Ensure all sections have proper width and prevent white backgrounds */
+    section, .resources-section, .credit-score-section, 
+    .fico-impact-section, .not-best-option-section, 
+    .credit-importance-section, .help-section, .get-started-section,
+    .cta-section, .footer {
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Container width fixes for mobile */
+    .container, .row, .col, .col-md-12, .col-lg-12 {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Ensure the navbar dropdown stays on top with improved styling */
+    .navbar-collapse {
+        background-color: #151938;
+        padding: 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
     }
 }
 
@@ -2732,6 +2865,12 @@
     right: 50px;
     bottom: 50px;
     z-index: 10;
+    padding: 12px 20px;
+    background-color: rgba(25, 32, 66, 0.7);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .carousel-nav {
@@ -2838,6 +2977,90 @@
 
 
 /* End of CSS file */
+
+/* Adjust button sizes to accommodate text on one line */
+.plan-actions .apply-btn,
+.plan-actions .learn-more-btn {
+    width: 120px; /* Increased from 100px to fit text better */
+    padding: 8px 10px;
+    font-size: 13px;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .plan-actions .apply-btn,
+    .plan-actions .learn-more-btn {
+        width: 110px; /* Slightly smaller on mobile but still enough for text */
+    }
+}
+
+/* Make sure all text in the carousel navigation is white */
+.carousel-nav span,
+.carousel-nav-outer span,
+.carousel-nav-outer div,
+.carousel-nav div {
+    color: #ffffff !important;
+}
+
+/* Ensure slide counter text is white, including the divider */
+.total-slides {
+    color: #ffffff !important;
+    font-size: 40px;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .total-slides {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Improved navbar dropdown for mobile */
+    .navbar-collapse {
+        background-color: #151938;
+        padding: 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    /* Improve nav items spacing and visibility */
+    .navbar-nav {
+        padding: 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 15px 20px;
+        color: #ffffff !important;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
+    
+    .navbar-nav .nav-link:last-child {
+        border-bottom: none;
+    }
+    
+    /* Hide Get Started button in navbar dropdown */
+    .navbar-nav .btn-primary {
+        display: none;
+    }
+}
 
 
 
