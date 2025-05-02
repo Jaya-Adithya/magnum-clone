@@ -332,4 +332,5 @@ function playVideo() {
     playButton.style.display = 'none';
 } 
 
-
+currentYear = new Date().getFullYear();
+document.getElementById("footer-year").textContent = currentYear;
