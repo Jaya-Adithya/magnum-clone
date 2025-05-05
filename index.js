@@ -13,10 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollAnimations();
         console.log("Scroll animations initialized");
     }, 100);
+    
+    // Set current year in footer
+    const footerYearElement = document.getElementById('footer-year');
+    if (footerYearElement) {
+        footerYearElement.textContent = new Date().getFullYear();
+    }
 });
 
 // Main Carousel Variables
-let currentSlide = 1;
+let currentSlide = 0;
 const totalSlides = 6;
 let carouselInterval;
 
@@ -27,8 +33,8 @@ function initMainCarousel() {
     });
     
     // Show the first slide
-    document.querySelector(`.carousel-item:nth-child(${currentSlide})`).classList.add('active');
-    document.getElementById('current-slide').textContent = currentSlide;
+    document.querySelector(`.carousel-item:nth-child(${currentSlide + 1})`).classList.add('active');
+    document.getElementById('current-slide').textContent = currentSlide + 1;
     
     // Add click handlers for the navigation buttons
     const prevButton = document.querySelector('.carousel-prev');
@@ -36,15 +42,13 @@ function initMainCarousel() {
     
     if (prevButton && nextButton) {
         prevButton.addEventListener('click', function() {
-            moveCarousel(-1);
-            // Reset the auto-rotation timer when manually navigated
-            resetCarouselTimer();
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlide();
         });
         
         nextButton.addEventListener('click', function() {
-            moveCarousel(1);
-            // Reset the auto-rotation timer when manually navigated
-            resetCarouselTimer();
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlide();
         });
     }
     
@@ -87,33 +91,15 @@ function adjustCarouselLayout() {
 function startCarouselTimer() {
     // Auto-rotate every 5 seconds
     carouselInterval = setInterval(function() {
-        moveCarousel(1);
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlide();
     }, 5000);
 }
 
-function resetCarouselTimer() {
-    // Clear existing timer
-    clearInterval(carouselInterval);
-    // Start a new timer
-    startCarouselTimer();
-}
-
-function moveCarousel(step) {
-    // Hide current slide
-    document.querySelector(`.carousel-item:nth-child(${currentSlide})`).classList.remove('active');
-    
-    // Calculate new slide number
-    currentSlide = currentSlide + step;
-    
-    // Loop back to beginning/end if needed
-    if (currentSlide > totalSlides) currentSlide = 1;
-    if (currentSlide < 1) currentSlide = totalSlides;
-    
-    // Show new slide
-    document.querySelector(`.carousel-item:nth-child(${currentSlide})`).classList.add('active');
-    
-    // Update slide counter
-    document.getElementById('current-slide').textContent = currentSlide;
+function updateSlide() {
+    document.querySelectorAll('.carousel-item').forEach(item => item.classList.remove('active'));
+    document.querySelector(`.carousel-item:nth-child(${currentSlide + 1})`).classList.add('active');
+    document.getElementById('current-slide').textContent = currentSlide + 1;
 }
 
 // Resources Carousel Variables
@@ -121,7 +107,6 @@ let resourceCurrentSlide = 0;
 let resourceTotalSlides = 0;
 let resourceCardsPerSlide = 3;
 let resourceCarouselContainer = null;
-let resourceCarouselWidth = 0;
 let resourceDots = [];
 
 function initResourceCarousel() {
@@ -129,17 +114,16 @@ function initResourceCarousel() {
     if (!resourceCarouselContainer) return;
     
     const resourceCards = resourceCarouselContainer.querySelectorAll('.resource-card');
+    if (resourceCards.length === 0) return;
+    
+    // Determine initial cards per slide based on viewport width
+    updateResourceCardsPerSlide();
+    
+    // Calculate total slides needed
     resourceTotalSlides = Math.ceil(resourceCards.length / resourceCardsPerSlide);
     
-    // Get all dots
-    resourceDots = document.querySelectorAll('.carousel-dot');
-    
-    // Add event listeners to dots
-    resourceDots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            showResourceSlide(parseInt(this.getAttribute('data-slide')));
-        });
-    });
+    // Create or update dots based on total slides
+    updateDots();
     
     // Add event listeners to navigation buttons
     const prevBtn = document.querySelector('.resources-carousel .carousel-prev');
@@ -147,73 +131,124 @@ function initResourceCarousel() {
     
     if (prevBtn) {
         prevBtn.addEventListener('click', function() {
-            moveResourceCarousel(-1);
+            resourceCurrentSlide = (resourceCurrentSlide - 1 + resourceTotalSlides) % resourceTotalSlides;
+            showResourceSlide(resourceCurrentSlide);
         });
     }
     
     if (nextBtn) {
         nextBtn.addEventListener('click', function() {
-            moveResourceCarousel(1);
+            resourceCurrentSlide = (resourceCurrentSlide + 1) % resourceTotalSlides;
+            showResourceSlide(resourceCurrentSlide);
         });
     }
     
-    // Update carousel width and card width based on viewport
-    updateResourceCarouselDimensions();
+    // Initial slide display
+    showResourceSlide(0);
     
     // Add window resize event listener
     window.addEventListener('resize', function() {
-        updateResourceCarouselDimensions();
-        showResourceSlide(resourceCurrentSlide);
+        const oldCardsPerSlide = resourceCardsPerSlide;
+        updateResourceCardsPerSlide();
+        
+        // Only update if the layout changed
+        if (oldCardsPerSlide !== resourceCardsPerSlide) {
+            // Recalculate total slides
+            resourceTotalSlides = Math.ceil(resourceCards.length / resourceCardsPerSlide);
+            
+            // Reset to first slide
+            resourceCurrentSlide = 0;
+            
+            // Update dots based on new layout
+            updateDots();
+            
+            // Show first slide
+            showResourceSlide(0);
+        }
     });
 }
 
-function updateResourceCarouselDimensions() {
-    // Determine cards per slide based on viewport width
+// Update how many cards to show per slide based on screen size
+function updateResourceCardsPerSlide() {
     if (window.innerWidth < 768) {
-        resourceCardsPerSlide = 1;
+        resourceCardsPerSlide = 1; // Mobile: 1 card per slide
     } else if (window.innerWidth < 992) {
-        resourceCardsPerSlide = 2;
+        resourceCardsPerSlide = 2; // Tablet: 2 cards per slide
     } else {
-        resourceCardsPerSlide = 3;
+        resourceCardsPerSlide = 3; // Desktop: 3 cards per slide
     }
-    
-    // Recalculate total slides
-    const resourceCards = resourceCarouselContainer.querySelectorAll('.resource-card');
-    resourceTotalSlides = Math.ceil(resourceCards.length / resourceCardsPerSlide);
-    
-    // Get container width
-    const carouselContainer = document.querySelector('.resources-carousel');
-    resourceCarouselWidth = carouselContainer.offsetWidth;
 }
 
-function moveResourceCarousel(step) {
-    resourceCurrentSlide += step;
+// Create or update dots based on total slides
+function updateDots() {
+    const dotsContainer = document.querySelector('.carousel-dots');
+    if (!dotsContainer) return;
     
-    // Handle wrap-around
-    if (resourceCurrentSlide < 0) resourceCurrentSlide = resourceTotalSlides - 1;
-    if (resourceCurrentSlide >= resourceTotalSlides) resourceCurrentSlide = 0;
+    // Clear existing dots
+    dotsContainer.innerHTML = '';
+    resourceDots = [];
     
-    showResourceSlide(resourceCurrentSlide);
+    // Create new dots based on total slides
+    for (let i = 0; i < resourceTotalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'carousel-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.setAttribute('data-slide', i);
+        
+        // Add click event to each dot
+        dot.addEventListener('click', function() {
+            const slideIndex = parseInt(this.getAttribute('data-slide'));
+            showResourceSlide(slideIndex);
+        });
+        
+        dotsContainer.appendChild(dot);
+        resourceDots.push(dot);
+    }
+    
+    // Apply mobile-specific styles to dots container if needed
+    if (window.innerWidth < 768) {
+        dotsContainer.style.display = 'flex';
+        dotsContainer.style.flexWrap = 'wrap';
+        dotsContainer.style.gap = '8px';
+        dotsContainer.style.justifyContent = 'center';
+        dotsContainer.style.marginTop = '20px';
+    } else {
+        dotsContainer.style.display = '';
+        dotsContainer.style.flexWrap = '';
+        dotsContainer.style.gap = '';
+        dotsContainer.style.justifyContent = '';
+        dotsContainer.style.marginTop = '';
+    }
 }
 
 function showResourceSlide(slideIndex) {
     resourceCurrentSlide = slideIndex;
     
-    // Calculate translation amount
-    const cardWidth = document.querySelector('.resource-card').offsetWidth + 40; // width + margin
-    const translateValue = -1 * resourceCurrentSlide * cardWidth * resourceCardsPerSlide;
+    // Update active dot
+    resourceDots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === slideIndex);
+    });
     
-    // Apply transformation
-    resourceCarouselContainer.style.transform = `translateX(${translateValue}px)`;
+    // Calculate position for the slide
+    const translateValue = -slideIndex * (100 / resourceCardsPerSlide) * resourceCardsPerSlide;
+    resourceCarouselContainer.style.transform = `translateX(${translateValue}%)`;
     
-    // Update dots
-    for (let i = 0; i < resourceDots.length; i++) {
-        resourceDots[i].classList.remove('active');
-    }
+    // For mobile view, adjust card widths to ensure they take full width
+    const resourceCards = resourceCarouselContainer.querySelectorAll('.resource-card');
     
-    if (resourceDots[resourceCurrentSlide]) {
-        resourceDots[resourceCurrentSlide].classList.add('active');
-    }
+    resourceCards.forEach(card => {
+        if (window.innerWidth < 768) {
+            // On mobile, make cards take full width
+            card.style.flex = '0 0 100%';
+            card.style.minWidth = '80%';
+            card.style.maxWidth = '100%';
+        } else {
+            // On desktop, restore original styling
+            card.style.flex = '';
+            card.style.minWidth = '';
+            card.style.maxWidth = '';
+        }
+    });
 }
 
 // Handle pricing tab switching
@@ -276,61 +311,45 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
                 
-                // Optional: Stop observing after animation is triggered
-                // observer.unobserve(entry.target);
-            } else {
-                // Optional: Remove animation class when element leaves viewport
-                // Uncomment if you want to replay animations when scrolling up
-                // entry.target.classList.remove('animate');
+                // Optionally stop observing after animation is triggered
+                observer.unobserve(entry.target);
             }
         });
     }, {
         root: null, // viewport
-        threshold: 0.15, // trigger when 15% of the element is visible
-        rootMargin: '0px 0px -100px 0px' // trigger slightly before element enters viewport
+        threshold: 0.1, // trigger when 10% of the element is visible
+        rootMargin: '0px'
     });
     
-    // Observe all animated elements
+    // Observe each element
     animatedElements.forEach(element => {
         observer.observe(element);
-    });
-    
-    // Set data attributes on elements to mark them for animation
-    animatedElements.forEach(element => {
-        element.setAttribute('data-scroll-animated', 'true');
     });
 }
 
 // Video player functionality
-// This function is called from the HTML inline onclick
 function playVideo() {
-    // Get the elements
+    const videoPlayButton = document.getElementById('video-play-button');
     const thumbnailImage = document.getElementById('thumbnail-image');
-    const playButton = document.getElementById('video-play-button');
     const youtubeContainer = document.getElementById('youtube-container');
     
-    if (!thumbnailImage || !playButton || !youtubeContainer) {
-        console.error('Missing video elements');
-        return;
+    if (videoPlayButton && thumbnailImage && youtubeContainer) {
+        // Hide thumbnail and play button
+        thumbnailImage.style.display = 'none';
+        videoPlayButton.style.display = 'none';
+        
+        // Show video container
+        youtubeContainer.style.display = 'block';
+        
+        // Create and append iframe
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/rH6zdzitLEI?autoplay=1';
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('allow', 'autoplay');
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        
+        youtubeContainer.appendChild(iframe);
     }
-    
-    // Create the iframe element
-    const iframe = document.createElement('iframe');
-    iframe.src = 'https://www.youtube.com/embed/rH6zdzitLEI?autoplay=1';
-    iframe.title = 'Credit Importance Video';
-    iframe.frameBorder = '0';
-    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.allowFullscreen = true;
-    iframe.width = '100%';
-    iframe.height = '100%';
-    
-    // Insert iframe and hide thumbnail
-    youtubeContainer.innerHTML = '';
-    youtubeContainer.appendChild(iframe);
-    youtubeContainer.style.display = 'block';
-    thumbnailImage.style.display = 'none';
-    playButton.style.display = 'none';
-} 
-
-currentYear = new Date().getFullYear();
-document.getElementById("footer-year").textContent = currentYear;
+}

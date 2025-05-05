@@ -1,10 +1,10 @@
-
 body, html {
     width: 100%;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
     background-color: #1d2246;
+    position: relative; /* Add position relative to body */
 }
 
 .main-container {
@@ -13,8 +13,9 @@ body, html {
     min-height: 100vh;
     background-color: #1d2246;
     overflow: hidden;
-    padding-top: 100px;
+    padding-top: 100px; /* Ensure proper spacing from navbar */
     max-width: 100vw;
+    z-index: 1; /* Ensure correct stacking order */
 }
 
 .main-container::before {
@@ -36,19 +37,20 @@ body, html {
    
 
 .nav-bar{
+    background-color: #151938; /* Restored original background color */
+    position: fixed; /* Make navbar fixed */
     width: 100%;
-    height: 100px;
+    top: 0;
+    left: 0; /* Ensure full width coverage */
+    z-index: 1000; /* Ensure navbar stays on top */
+    padding: 10px 0;
     opacity: 1; 
-    background-color: #151938;
     box-shadow: 0px 2px 10px rgba(0,0,0,0.06); 
     mix-blend-mode: normal; /* Changed from darken to prevent transparency issues */
     font-size: 18px;
     font-family: poppins;
-    position: fixed; /* Make navbar fixed */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensure navbar stays on top */
     transition: all 0.3s ease;
+    height: 80px; /* Fixed height for navbar */
 }
 
 .btn-primary, .apply-btn, .cta-button {
@@ -2059,7 +2061,8 @@ body, html {
         z-index: 1000;
         max-height: calc(100vh - 80px);
         overflow-y: auto;
-        border-top: 1px solid rgba(255,255,255,0.1);
+        border-top: 1px solid rgb(230, 224, 224);
+        color: white;
         width: 100%;
     }
 }
@@ -2954,7 +2957,7 @@ body, html {
         right: 0;
         z-index: 1000;
         box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        border-top: 1px solid rgba(255,255,255,0.05);
+        border-top: 1px solid rgb(223, 223, 223);
         max-height: calc(100vh - 80px);
         overflow-y: auto;
     }
@@ -3068,6 +3071,167 @@ body, html {
     .navbar-nav .btn-primary {
         display: none;
     }
+}
+
+/* Make navbar toggler icon white */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5) !important;
+}
+
+/* Ensure sections don't overlap */
+section {
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+/* Fix for overlapping sections */
+.credit-score-section,
+.get-started-section,
+.fico-impact-section,
+.not-best-option-section,
+.credit-importance-section,
+.help-section,
+.resources-section,
+.cta-section {
+    clear: both;
+    position: relative;
+}
+
+/* Additional fix for navbar toggler */
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+    border-color: rgba(255,255,255,0.8) !important;
+}
+
+/* Reset animation for content to prevent overlapping */
+@media (max-width: 768px) {
+    .container, .hero-content, .person-image-container,
+    .thought-bubble-container, .credit-info-box,
+    .fico-impact-content, .process-step {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Mobile-specific improvements for resource carousel dots */
+@media (max-width: 768px) {
+    /* Show more dots for carousel on mobile */
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 15px;
+    }
+    
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    /* Ensure resource cards don't overlap in mobile view */
+    .resource-card {
+        min-width: 80%;
+        margin: 0 10px;
+    }
+    
+    /* Add more space between dots and content */
+    .resources-carousel-wrapper {
+        padding-bottom: 30px;
+    }
+
+    /* Improve plan header spacing for mobile - fix overlapping issue */
+    .plan-header {
+        padding: 10px;
+        top: -25px;
+        z-index: 10;
+    }
+    
+    /* Add more space between plan header and price container */
+    .plan-price-container {
+        padding-top: 30px;
+    }
+    
+    .monthly-price {
+        margin-top: 5px;
+    }
+    
+    /* Ensure plan name doesn't overlap with other elements */
+    .plan-name {
+        font-size: 15px;
+        line-height: 1.3;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+/* Additional adjustment for pricing plans on mobile */
+@media (max-width: 576px) {
+    .pricing-plan {
+        margin-top: 45px; /* Increased from 35px to prevent overlap */
+    }
+    
+    .plan-header {
+        width: 160px; /* Slightly narrower on very small screens */
+    }
+    
+    .plan-price-container {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 35px; /* More space at the top */
+    }
+    
+    .monthly-price {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .total-amount {
+        text-align: center;
+    }
+}
+
+/* Resource card carousel container */
+#resource-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.5s ease;
+}
+
+/* Style for carousel dots to indicate slides */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #4580c0;
+    width: 20px;
+    border-radius: 5px;
 }
 
 
