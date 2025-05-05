@@ -41,12 +41,16 @@ function initMainCarousel() {
     const nextButton = document.querySelector('.carousel-next');
     
     if (prevButton && nextButton) {
-        prevButton.addEventListener('click', function() {
+        prevButton.addEventListener('click', function(e) {
+            // Prevent default anchor behavior
+            e.preventDefault();
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             updateSlide();
         });
         
-        nextButton.addEventListener('click', function() {
+        nextButton.addEventListener('click', function(e) {
+            // Prevent default anchor behavior
+            e.preventDefault();
             currentSlide = (currentSlide + 1) % totalSlides;
             updateSlide();
         });
@@ -130,14 +134,18 @@ function initResourceCarousel() {
     const nextBtn = document.querySelector('.resources-carousel .carousel-next');
     
     if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
+        prevBtn.addEventListener('click', function(e) {
+            // Prevent default anchor behavior if it's an anchor
+            if (e && e.preventDefault) e.preventDefault();
             resourceCurrentSlide = (resourceCurrentSlide - 1 + resourceTotalSlides) % resourceTotalSlides;
             showResourceSlide(resourceCurrentSlide);
         });
     }
     
     if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
+        nextBtn.addEventListener('click', function(e) {
+            // Prevent default anchor behavior if it's an anchor
+            if (e && e.preventDefault) e.preventDefault();
             resourceCurrentSlide = (resourceCurrentSlide + 1) % resourceTotalSlides;
             showResourceSlide(resourceCurrentSlide);
         });

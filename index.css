@@ -166,6 +166,7 @@ body, html {
     z-index: 2;
     width: 450px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .speech-connector {
@@ -3232,6 +3233,301 @@ section {
     background-color: #4580c0;
     width: 20px;
     border-radius: 5px;
+}
+
+/* Reduce excessive padding in mobile view */
+@media (max-width: 768px) {
+    /* Main container adjustments */
+    .main-container {
+        padding-top: 80px;
+        padding-bottom: 0;
+    }
+
+    /* Container spacing adjustments */
+    .container, .row, .col-md-5, .col-md-7 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Hero content spacing */
+    .hero-content {
+        padding: 10px !important;
+        margin-bottom: 0;
+    }
+
+    /* Carousel adjustments */
+    .carousel-item {
+        padding-bottom: 60px !important;
+    }
+
+    .person-image-container {
+        margin-bottom: 20px;
+        padding-bottom: 0;
+    }
+
+    .thought-bubble-container {
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    /* Adjust carousel navigation position */
+    .carousel-nav-outer {
+        bottom: 10px;
+    }
+
+    /* Reduce extra space between sections */
+    .credit-score-section, 
+    .get-started-section,
+    .fico-impact-section,
+    .not-best-option-section,
+    .credit-importance-section,
+    .help-section,
+    .resources-section,
+    .cta-section {
+        padding: 40px 0;
+    }
+
+    /* Adjust spacing for section content */
+    section h2 {
+        margin-bottom: 15px;
+    }
+
+    section p {
+        margin-bottom: 20px;
+    }
+}
+
+/* Fix for navigation buttons to ensure they work properly */
+.carousel-prev, .carousel-next {
+    cursor: pointer;
+}
+
+/* Prevent the default link behavior while maintaining button styling */
+a.carousel-prev, a.carousel-next {
+    text-decoration: none;
+}
+
+/* Fix for overlapping carousel buttons and text */
+.thought-bubble {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 20px;
+}
+
+.thought-bubble a {
+    position: relative;
+    z-index: 5; /* Higher z-index to stay above buttons */
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Position carousel navigation to avoid overlap */
+.carousel-nav-outer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: rgba(25, 32, 66, 0.7);
+    border-radius: 30px;
+    padding: 10px 15px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Adjust thought bubble structure for mobile */
+    .thought-bubble {
+        text-align: center;
+        margin-bottom: 40px; /* More space below text */
+    }
+    
+    .thought-bubble a {
+        margin-bottom: 30px;
+    }
+    
+    /* Reposition carousel navigation on mobile */
+    .carousel-nav-outer {
+        bottom: 10px;
+        right: 50%;
+        transform: translateX(50%);
+        width: auto;
+    }
+    
+    /* Ensure the carousel item has enough height to avoid overlap */
+    .carousel-item {
+        padding-bottom: 80px !important;
+        min-height: 450px;
+    }
+}
+
+/* Complete mobile carousel structure fix */
+@media (max-width: 768px) {
+    /* Main carousel structure */
+    .carousel-container {
+        position: relative;
+        height: auto;
+        min-height: 450px; /* Reduced from 600px */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Each carousel item */
+    .carousel-item {
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        min-height: 350px; /* Reduced from 550px */
+        height: auto;
+        padding-bottom: 60px !important; /* Reduced from 90px */
+        position: relative;
+    }
+    
+    /* Person image container */
+    .person-image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px; /* Reduced from 30px */
+        height: auto;
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+    
+    /* Person image */
+    .person-image {
+        max-height: 200px; /* Reduced from 300px */
+        width: auto;
+    }
+    
+    /* Thought bubble container */
+    .thought-bubble-container {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px; /* Reduced from 80px */
+        height: auto;
+    }
+    
+    /* Thought bubble */
+    .thought-bubble {
+        width: 90%;
+        max-width: 350px;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 10px; /* Reduced from 20px */
+    }
+    
+    /* Thought bubble heading */
+    .thought-bubble h2 {
+        font-size: 20px; /* Reduced from 22px */
+        line-height: 1.3;
+        margin-bottom: 0; /* Reduced from 15px */
+    }
+    
+    /* Help improve link */
+    .thought-bubble a {
+        display: inline-block;
+        margin: 10px 0; /* Reduced from 20px 0 30px */
+        padding: 5px 10px; /* Reduced from 8px 15px */
+        background-color: #192042; /* Changed to match the photo */
+        border-radius: 4px;
+        position: relative;
+        z-index: 5;
+        color: #4cc9f0 !important; /* Ensure text color is correct */
+    }
+    
+    /* Navigation controls - align as shown in photo */
+    .carousel-nav-outer {
+        position: absolute;
+        bottom: 10px; /* Reduced from 15px */
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        z-index: 20;
+        padding: 8px 15px;
+        margin-top: 0;
+    }
+    
+    /* Adjust the arrow text sizing */
+    #current-slide, .text-white-50 {
+        font-size: 28px; /* Adjusted to match photo */
+        vertical-align: middle;
+    }
+    
+    /* Make sure the buttons are aligned with the number */
+    .carousel-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carousel-prev, .carousel-next {
+        width: 40px; /* Adjusted size */
+        height: 40px;
+    }
+    
+    /* Remove speech connector on mobile */
+    .speech-connector {
+        display: none;
+    }
+    
+    /* Hero content spacing */
+    .hero-content {
+        padding: 10px !important;
+        margin-bottom: 0;
+    }
+    
+    /* Container spacing adjustments */
+    .container, .row, .col-md-5, .col-md-7 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/* Fix resources carousel navigation on mobile */
+@media (max-width: 768px) {
+    /* Resources carousel adjustments */
+    .resources-carousel-wrapper {
+        padding: 0 10px 20px;
+    }
+    
+    .resources-carousel {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Adjust carousel navigation buttons */
+    .resources-carousel .carousel-nav-btn {
+        width: 40px;
+        height: 40px;
+        top: 45%;
+    }
+    
+    /* Adjust resource cards */
+    .resource-card {
+        min-width: 80%;
+        margin: 0 10px;
+        height: auto;
+        max-height: 420px;
+    }
+    
+    /* Adjust dot navigation */
+    .carousel-dots {
+        margin-top: 15px;
+        gap: 5px;
+    }
+    
+    .carousel-dot {
+        width: 8px;
+        height: 8px;
+        margin: 0;
+    }
+    
+    .carousel-dot.active {
+        width: 16px;
+    }
 }
 
 
