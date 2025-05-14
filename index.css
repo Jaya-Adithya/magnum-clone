@@ -33,15 +33,24 @@ body, html {
     position: relative;
     z-index: 1;
 }
+
+.nav-bg-color{
+    background-color: #151938;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
-   
+}
+    
+.container-fluid-1{
+    display: flex;
+    flex-wrap: none !important;
+    align-items: center;
+    justify-content: space-between;
+}
 
 .nav-bar{
-    background-color: #151938;
-    position: fixed;
     width: 100%;
-    top: 0;
-    left: 0;
     z-index: 1000;
     padding: 10px 0;
     opacity: 1; 

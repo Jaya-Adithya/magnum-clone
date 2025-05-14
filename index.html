@@ -14,671 +14,681 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div>
-        <!-- NavBar Section -->
-        <header>
+     <!-- NavBar Section -->
+    <header class="nav-bg-color fixed-top">
+        <div class="container">
             <nav class="navbar navbar-expand-lg nav-bar">
-                <div class="container-fluid px-5">
-                    <a class="navbar-brand" href="#">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745317543/Artboard_2_egngaz.svg" alt="Magnum Logo" height="50" >
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                            <a class="nav-link text-white mx-3" href="#creditScore">Credit Score</a>
-                            <a class="nav-link text-white mx-3" href="#ficoImpact">FICO Impact</a>
-                            <a class="nav-link text-white mx-3" href="#plans">Plans</a>
-                            <a class="nav-link text-white mx-3" href="#resources">Resources</a>
-                            <a class="btn btn-primary ms-3 px-4" href="#getStarted" role="button">Get Started <span>&rsaquo;</span></a>
-                        </div>
+                <a class="navbar-brand" href="#">
+                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745317543/Artboard_2_egngaz.svg" alt="Magnum Logo" height="50" >
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link text-white mx-3" href="#creditScore">Credit Score</a>
+                        <a class="nav-link text-white mx-3" href="#ficoImpact">FICO Impact</a>
+                        <a class="nav-link text-white mx-3" href="#plans">Plans</a>
+                        <a class="nav-link text-white mx-3" href="#resources">Resources</a>
+                        <a class="btn btn-primary ms-3 px-4" href="#getStarted" role="button">Get Started <span>&rsaquo;</span></a>
                     </div>
                 </div>
             </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- Home Section -->
-        <section class="main-container">
-            <div class="container">
-                <div class="row">
-                    <!-- Left side - Constant content -->
-                    <div class="col-md-5 d-flex align-items-center" style="min-height: 80vh;">
-                        <div class="hero-content text-white p-4 animate-on-scroll">
-                            <h1 class="display-4 fw-bold mb-4 animate-fade-up">Build your credit <span class="d-block">and improve your FICO Score</span> <span class="d-block">with <span class="magnum-text">MAGNUM</span></span></h1>
-                            <div class="mt-5 animate-fade-up">
-                                <a href="#" class="btn btn-primary btn-lg px-4">Get Started <span>&rsaquo;</span></a>
+    <!-- Main Content -->
+    <!-- Home Section -->
+    <section class="main-container">
+        <div class="container">
+            <div class="row">
+                <!-- Left side - Constant content -->
+                <div class="col-md-5 d-flex align-items-center" style="min-height: 80vh;">
+                    <div class="hero-content text-white p-4 animate-on-scroll">
+                        <h1 class="display-4 fw-bold mb-4 animate-fade-up">Build your credit <span class="d-block">and improve your FICO Score</span> <span class="d-block">with <span class="magnum-text">MAGNUM</span></span></h1>
+                        <div class="mt-5 animate-fade-up">
+                            <a href="#" class="btn btn-primary btn-lg px-4">Get Started <span>&rsaquo;</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right side - Custom Carousel -->
+                <div class="col-md-7 position-relative">
+                    <div class="carousel-container animate-on-scroll">
+                        <!-- Carousel Item 1 -->
+                        <div class="carousel-item active">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389852/p2-image_wx8rkn.png" alt="Business woman" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I want to <span class="fw-bold">BUILD BUSINESS CREDIT</span> using my SSN.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Item 2 -->
+                        <div class="carousel-item">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389949/p3-image_bvsxgk.png" alt="Man in business attire" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I need to <span class="fw-bold">REPAIR MY CREDIT</span> after financial hardship.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Item 3 -->
+                        <div class="carousel-item">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390032/p1-image_lsydk5.png" alt="Young professional" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I'm looking to <span class="fw-bold">ESTABLISH CREDIT</span> for the first time.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Item 4 -->
+                        <div class="carousel-item">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390265/p4-image_jp7x8u.png" alt="Entrepreneur" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I want to <span class="fw-bold">BOOST MY SCORE</span> for a home purchase.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Item 5 -->
+                        <div class="carousel-item">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390174/p5-image_azuqxy.png" alt="Young adult" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I need to <span class="fw-bold">DIVERSIFY MY CREDIT</span> portfolio quickly.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Carousel Item 6 -->
+                        <div class="carousel-item">
+                            <div class="person-image-container">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745318263/p6-image_k50xcp.png" alt="Business owner" class="img-fluid person-image">
+                                <div class="speech-connector"></div>
+                            </div>
+                            <div class="thought-bubble-container">
+                                <div class="thought-bubble">
+                                    <h2>I want to <span class="fw-bold">SEPARATE PERSONAL & BUSINESS</span> finances.</h2>
+                                    <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- Right side - Custom Carousel -->
-                    <div class="col-md-7 position-relative">
-                        <div class="carousel-container animate-on-scroll">
-                            <!-- Carousel Item 1 -->
-                            <div class="carousel-item active">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389852/p2-image_wx8rkn.png" alt="Business woman" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I want to <span class="fw-bold">BUILD BUSINESS CREDIT</span> using my SSN.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Carousel Navigation -->
+        <div class="carousel-nav-outer">
+            <div class="carousel-nav">
+                <a class="btn btn-sm carousel-prev mx-1"><span class="arrow-size">&lsaquo;</span></a>
+                <span id="current-slide" class="text-white arrow-text">1</span><span class="text-white-50">/6</span>
+                <a class="btn btn-sm carousel-next mx-1"><span>&rsaquo;</span></a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Credit Score Section -->
+    <section class="credit-score-section" id="creditScore">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 animate-on-scroll">
+                    <h2 class="animate-fade-up">Start improving your <span>credit score</span> today</h2>
+                    <p class="animate-fade-up">Build your credit score quickly, whatever your need is</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="credit-info-box animate-fade-right">
+                        <div class="magnum-text">MAGNUM</div>
+                        <p>accounts report up to $10,000 of installment credit to the 3 major credit bureaus. Maximize your amount of credit. Boost your credit score.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="credit-info-box animate-fade-left">
+                        <div class="magnum-text">MAGNUM</div>
+                        <p>accounts can help if you want to demonstrate your ability to reliably repay larger credit obligations with higher fixed monthly payments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Started Section -->
+    <section class="get-started-section" id="getStarted">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 animate-on-scroll">
+                    <h2 class="animate-fade-up">Get Started with <span>MAGNUM</span></h2>
+                    <p class="animate-fade-up">Open an account in minutes.</p>
+                    <div class="how-it-works animate-fade-up">How credit building works</div>
+                </div>
+            </div>
+      
+            <div class="process-steps-container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="process-step animate-fade-up">
+                            <div class="step-icon">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389582/clock_w43dji.svg" alt="Clock icon">
                             </div>
-                            
-                            <!-- Carousel Item 2 -->
-                            <div class="carousel-item">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389949/p3-image_bvsxgk.png" alt="Man in business attire" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I need to <span class="fw-bold">REPAIR MY CREDIT</span> after financial hardship.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Carousel Item 3 -->
-                            <div class="carousel-item">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390032/p1-image_lsydk5.png" alt="Young professional" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I'm looking to <span class="fw-bold">ESTABLISH CREDIT</span> for the first time.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Carousel Item 4 -->
-                            <div class="carousel-item">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390265/p4-image_jp7x8u.png" alt="Entrepreneur" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I want to <span class="fw-bold">BOOST MY SCORE</span> for a home purchase.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Carousel Item 5 -->
-                            <div class="carousel-item">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745390174/p5-image_azuqxy.png" alt="Young adult" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I need to <span class="fw-bold">DIVERSIFY MY CREDIT</span> portfolio quickly.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Carousel Item 6 -->
-                            <div class="carousel-item">
-                                <div class="person-image-container">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745318263/p6-image_k50xcp.png" alt="Business owner" class="img-fluid person-image">
-                                    <div class="speech-connector"></div>
-                                </div>
-                                <div class="thought-bubble-container">
-                                    <div class="thought-bubble">
-                                        <h2>I want to <span class="fw-bold">SEPARATE PERSONAL & BUSINESS</span> finances.</h2>
-                                        <a href="#" class="text-info mt-3 d-inline-block">Help improve my credit score <span>&rsaquo;</span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            <h3>Apply for an account in just minutes</h3>
+                            <p>No hard credit pull on your credit profile. Accounts are FDIC-insured.</p>
                         </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="process-step animate-fade-up">
+                            <div class="step-icon">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_tappfv.svg" alt="Handshake icon">
+                            </div>
+                            <h3>Pick a Plan</h3>
+                            <p>Pick an account that fits your objectives and budget.</p>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="process-step animate-fade-up">
+                            <div class="step-icon">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_2_scdg5y.svg" alt="Calendar icon">
+                            </div>
+                            <h3>Make on-time monthly payments to build a positive credit history</h3>
+                            <p>Free FICO scores monthly to track your progress.</p>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3">
+                        <div class="process-step animate-fade-up">
+                            <div class="step-icon">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_3_n7fnwe.svg" alt="Cancel icon">
+                            </div>
+                            <h3>Cancel anytime for free or build your length of credit history</h3>
+                            <p>Build up to 120 months of payment history.</p>
+                        </div>
+                    </div>
+                </div>
+          
+                <div class="process-arrows">
+                    <div class="arrow arrow-1 animate-fade-right"></div>
+                    <div class="arrow arrow-2 animate-fade-right"></div>
+                    <div class="arrow arrow-3 animate-fade-right"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+      
+    <!-- FICO Impact Section -->
+    <section class="fico-impact-section" id="ficoImpact">
+        <div class="container">
+            <div class="fico-impact-content animate-on-scroll">
+                <div class="fico-impact-container">
+                    <div class="fico-impact-text animate-fade-right">
+                        <h2><span class="magnum-text">MAGNUM</span> accounts can positively impact factors that determine <span class="highlight">90% of your FICO Score</span></h2>
+                    </div>
+                    
+                    <div class="fico-impact-image animate-fade-left">
+                        <video autoplay loop muted playsinline class="img-fluid">
+                            <source src="https://res.cloudinary.com/dwn7j1uen/video/upload/v1746523072/magnum-video_urcgm3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Not Best Option Section -->
+    <section class="not-best-option-section">
+        <div class="not-best-option-content animate-on-scroll">
+            <div class="not-best-option-text animate-fade-up">
+                <h2><span class="magnum-text">MAGNUM</span> may not be your best option if</h2>
+            </div>
+            
+            <div class="reasons-list">
+                <div class="reason-item animate-fade-up">
+                    <div class="reason-icon">✕</div>
+                    <div class="reason-text">
+                        <h3>You're applying for a home loan soon and are concerned about your <span class="highlight">debt-to-income ratio</span></h3>
+                    </div>
+                </div>
+                
+                <div class="reason-item animate-fade-up">
+                    <div class="reason-icon">✕</div>
+                    <div class="reason-text">
+                        <h3>You have a limited budget and cannot consistently <span class="highlight">make on-time monthly payments</span> of $55 or more</h3>
+                    </div>
+                </div>
+                
+                <div class="reason-item animate-fade-up">
+                    <div class="reason-icon">✕</div>
+                    <div class="reason-text">
+                        <h3>You are focused on <span class="highlight">building maximum savings</span> while you build credit</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credit Importance Section -->
+    <section class="credit-importance-section">
+        <div class="credit-importance-content animate-on-scroll">
+            <h2 class="animate-fade-up">Why Is Credit Important?</h2>
+            <p class="animate-fade-up">Credit helps you to get the things you need now, like a loan for a car or a credit card, based on your promise to pay later. Working to improve your credit helps ensure you'll qualify for loans when you need them.</p>
+            
+            <div class="video-container animate-scale">
+                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745387452/Untitled_1-96722ddb9113315b8e5b753cc0ab21fc-9826a1.png_lbtv5c.png" alt="Credit importance" class="thumbnail-image" id="thumbnail-image">
+                <div class="video-play-button" id="video-play-button" onclick="playVideo()">
+                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389117/MaterialIcon_xourts.svg" alt="Play button">
+                </div>
+                <div id="youtube-container" class="youtube-iframe-container"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Help Section -->
+    <section class="help-section" id="plans">
+        <div class="help-section-content animate-on-scroll">
+            <h2 class="animate-fade-up">How <span class="magnum-text">MAGNUM</span> can help you</h2>
+            <div class="help-section-subtitle animate-fade-up">Select your Plan</div>
+            
+            <div class="plan-tabs animate-fade-up">
+                <div class="plan-tab active">Fee based Credit</div>
+                <div class="plan-tab">Free with Deposit</div>
+            </div>
+            
+            <!-- Fee based Credit Plans (Default Active) -->
+            <div class="pricing-plans fee-based-plans active">
+                <!-- Plan 1 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">MAGNUM 49</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$49<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$2,500</div>
+                            <div class="installment-text">installment account reported</div>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
+                        <div class="plan-feature">Build personal credit for business purposes</div>
+                        <div class="plan-feature">Build up to 120 months of payment history</div>
+                        <div class="plan-feature">Cancel any time without penalty</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
+                    </div>
+                </div>
+                
+                <!-- Plan 2 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">MAGNUM 99</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$99<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$5,000</div>
+                            <div class="installment-text">installment account reported</div>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
+                        <div class="plan-feature">Build personal credit for business purposes</div>
+                        <div class="plan-feature">Build up to 120 months of payment history</div>
+                        <div class="plan-feature">Cancel any time without penalty</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
+                    </div>
+                </div>
+                
+                <!-- Plan 3 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">MAGNUM 199</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$199<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$10,000</div>
+                            <div class="installment-text">installment account reported</div>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
+                        <div class="plan-feature">Build personal credit for business purposes</div>
+                        <div class="plan-feature">Build up to 120 months of payment history</div>
+                        <div class="plan-feature">Cancel any time without penalty</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
                     </div>
                 </div>
             </div>
             
-            <!-- Carousel Navigation -->
-            <div class="carousel-nav-outer">
-                <div class="carousel-nav">
-                    <a class="btn btn-sm carousel-prev mx-1"><span class="arrow-size">&lsaquo;</span></a>
-                    <span id="current-slide" class="text-white arrow-text">1</span><span class="text-white-50">/6</span>
-                    <a class="btn btn-sm carousel-next mx-1"><span>&rsaquo;</span></a>
+            <!-- Free with Deposit Plans (Hidden by default) -->
+            <div class="pricing-plans deposit-based-plans">
+                <!-- Deposit Plan 1 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">SECURED 500</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$0<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$500</div>
+                            <div class="installment-text">minimum deposit required</div>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">No monthly fees</div>
+                        <div class="plan-feature">Build credit with your secured deposit</div>
+                        <div class="plan-feature">Full deposit returned upon completion</div>
+                        <div class="plan-feature">Deposit is fully insured</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
+                    </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Credit Score Section -->
-        <section class="credit-score-section" id="creditScore">
-            <div class="container animate-on-scroll">
-                <h2 class="animate-fade-up">Start improving your <span>credit score</span> today</h2>
-                <p class="animate-fade-up">Build your credit score quickly, whatever your need is</p>
                 
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <div class="credit-info-box animate-fade-right">
-                            <div class="magnum-text">MAGNUM</div>
-                            <p>accounts report up to $10,000 of installment credit to the 3 major credit bureaus. Maximize your amount of credit. Boost your credit score.</p>
+                <!-- Deposit Plan 2 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">SECURED 1000</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$0<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$1,000</div>
+                            <div class="installment-text">minimum deposit required</div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <div class="credit-info-box animate-fade-left">
-                            <div class="magnum-text">MAGNUM</div>
-                            <p>accounts can help if you want to demonstrate your ability to reliably repay larger credit obligations with higher fixed monthly payments</p>
+                    <div class="plan-features">
+                        <div class="plan-feature">No monthly fees</div>
+                        <div class="plan-feature">Higher credit limit reported</div>
+                        <div class="plan-feature">Interest paid on your deposit</div>
+                        <div class="plan-feature">Priority credit reporting</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
+                    </div>
+                </div>
+                
+                <!-- Deposit Plan 3 -->
+                <div class="pricing-plan animate-fade-up">
+                    <div class="plan-header">
+                        <h3 class="plan-name">SECURED 2500</h3>
+                    </div>
+                    <div class="plan-price-container">
+                        <div class="monthly-price">$0<span>/mo</span></div>
+                        <div class="total-amount">
+                            <div class="amount">$2,500</div>
+                            <div class="installment-text">minimum deposit required</div>
                         </div>
+                    </div>
+                    <div class="plan-features">
+                        <div class="plan-feature">No monthly fees</div>
+                        <div class="plan-feature">Premium credit reporting</div>
+                        <div class="plan-feature">Higher interest rate on deposit</div>
+                        <div class="plan-feature">Credit monitoring included</div>
+                    </div>
+                    <div class="plan-actions">
+                        <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
+                        <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Get Started Section -->
-        <section class="get-started-section" id="getStarted">
-            <div class="container animate-on-scroll">
-              <h2 class="animate-fade-up">Get Started with <span>MAGNUM</span></h2>
-              <p class="animate-fade-up">Open an account in minutes.</p>
-              <div class="how-it-works animate-fade-up">How credit building works</div>
-          
-              <div class="process-steps-container">
-                <div class="row">
-                  <div class="col-md-3">
-                    <div class="process-step animate-fade-up">
-                      <div class="step-icon">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389582/clock_w43dji.svg" alt="Clock icon">
-                      </div>
-                      <h3>Apply for an account in just minutes</h3>
-                      <p>No hard credit pull on your credit profile. Accounts are FDIC-insured.</p>
-                    </div>
-                  </div>
-          
-                <div class="col-md-3">
-                    <div class="process-step animate-fade-up">
-                      <div class="step-icon">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_tappfv.svg" alt="Handshake icon">
-                      </div>
-                      <h3>Pick a Plan</h3>
-                      <p>Pick an account that fits your objectives and budget.</p>
-                    </div>
-                </div>
-          
-                <div class="col-md-3">
-                    <div class="process-step animate-fade-up">
-                      <div class="step-icon">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_2_scdg5y.svg" alt="Calendar icon">
-                      </div>
-                      <h3>Make on-time monthly payments to build a positive credit history</h3>
-                      <p>Free FICO scores monthly to track your progress.</p>
-                    </div>
-                </div>
-          
-                <div class="col-md-3">
-                    <div class="process-step animate-fade-up">
-                      <div class="step-icon">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389581/Artboard_1_copy_3_n7fnwe.svg" alt="Cancel icon">
-                      </div>
-                      <h3>Cancel anytime for free or build your length of credit history</h3>
-                      <p>Build up to 120 months of payment history.</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="process-arrows">
-                  <div class="arrow arrow-1 animate-fade-right"></div>
-                  <div class="arrow arrow-2 animate-fade-right"></div>
-                  <div class="arrow arrow-3 animate-fade-right"></div>
-                </div>
-              </div>
+            
+            <div class="amortization-link animate-fade-up">
+                <a href="#">View Amortization Table <span>&rsaquo;</span></a>
             </div>
-        </section>
-          
+        </div>
+    </section>
 
-        <!-- FICO Impact Section -->
-        <section class="fico-impact-section" id="ficoImpact">
-            <div class="container">
-                <div class="fico-impact-content animate-on-scroll">
-                    <div class="fico-impact-container">
-                        <div class="fico-impact-text animate-fade-right">
-                            <h2><span class="magnum-text">MAGNUM</span> accounts can positively impact factors that determine <span class="highlight">90% of your FICO Score</span></h2>
+    <!-- Resources Section -->
+    <section class="resources-section" id="resources">
+        <div class="resources-content animate-on-scroll">
+            <h2 class="animate-fade-up">Resources</h2>
+            
+            <div class="resources-carousel-wrapper animate-fade-up">
+                <div class="resources-carousel">
+                    <div class="carousel-nav-btn carousel-prev">
+                        <span>&lsaquo;</span>
+                    </div>
+                    
+                    <div class="carousel-container" id="resource-carousel">
+                        <!-- Resource Card 1 -->
+                        <div class="resource-card animate-fade-up">
+                            <div class="resource-image">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_pdj8z7.png" alt="Blue Piggy Bank" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">BLOG</div>
+                                <h3 class="resource-title">Revolving Credit Simplified: The Basics, Benefits, and Examples</h3>
+                                <div class="resource-text">
+                                    Learn about the fundamentals of revolving credit, its advantages, and real-world applications.
+                                </div>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                            </div>
                         </div>
                         
-                        <div class="fico-impact-image animate-fade-left">
-                            <video autoplay loop muted playsinline class="img-fluid">
-                                <source src="https://res.cloudinary.com/dwn7j1uen/video/upload/v1746523072/magnum-video_urcgm3.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Not Best Option Section -->
-        <section class="not-best-option-section">
-            <div class="not-best-option-content animate-on-scroll">
-                <div class="not-best-option-text animate-fade-up">
-                    <h2><span class="magnum-text">MAGNUM</span> may not be your best option if</h2>
-                </div>
-                
-                <div class="reasons-list">
-                    <div class="reason-item animate-fade-up">
-                        <div class="reason-icon">✕</div>
-                        <div class="reason-text">
-                            <h3>You're applying for a home loan soon and are concerned about your <span class="highlight">debt-to-income ratio</span></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="reason-item animate-fade-up">
-                        <div class="reason-icon">✕</div>
-                        <div class="reason-text">
-                            <h3>You have a limited budget and cannot consistently <span class="highlight">make on-time monthly payments</span> of $55 or more</h3>
-                        </div>
-                    </div>
-                    
-                    <div class="reason-item animate-fade-up">
-                        <div class="reason-icon">✕</div>
-                        <div class="reason-text">
-                            <h3>You are focused on <span class="highlight">building maximum savings</span> while you build credit</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Credit Importance Section -->
-        <section class="credit-importance-section">
-            <div class="credit-importance-content animate-on-scroll">
-                <h2 class="animate-fade-up">Why Is Credit Important?</h2>
-                <p class="animate-fade-up">Credit helps you to get the things you need now, like a loan for a car or a credit card, based on your promise to pay later. Working to improve your credit helps ensure you'll qualify for loans when you need them.</p>
-                
-                <div class="video-container animate-scale">
-                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745387452/Untitled_1-96722ddb9113315b8e5b753cc0ab21fc-9826a1.png_lbtv5c.png" alt="Credit importance" class="thumbnail-image" id="thumbnail-image">
-                    <div class="video-play-button" id="video-play-button" onclick="playVideo()">
-                        <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745389117/MaterialIcon_xourts.svg" alt="Play button">
-                    </div>
-                    <div id="youtube-container" class="youtube-iframe-container"></div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Help Section -->
-        <section class="help-section" id="plans">
-            <div class="help-section-content animate-on-scroll">
-                <h2 class="animate-fade-up">How <span class="magnum-text">MAGNUM</span> can help you</h2>
-                <div class="help-section-subtitle animate-fade-up">Select your Plan</div>
-                
-                <div class="plan-tabs animate-fade-up">
-                    <div class="plan-tab active">Fee based Credit</div>
-                    <div class="plan-tab">Free with Deposit</div>
-                </div>
-                
-                <!-- Fee based Credit Plans (Default Active) -->
-                <div class="pricing-plans fee-based-plans active">
-                    <!-- Plan 1 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">MAGNUM 49</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$49<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$2,500</div>
-                                <div class="installment-text">installment account reported</div>
+                        <!-- Resource Card 2 (No Image) -->
+                        <div class="resource-card no-image animate-fade-up">
+                            <div class="resource-content">
+                                <div class="resource-category">NEWS</div>
+                                <h3 class="resource-title">Austin Capital Bank CEO Appointed to Consumer Financial Protection Bureau Advisory Council</h3>
+                                <div class="resource-text">
+                                    We all must look at the role we play in mitigating the spread and impact of viruses to ensure a better outcome. Due to concerns for the safety and health regarding the...
+                                </div>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
                             </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
-                            <div class="plan-feature">Build personal credit for business purposes</div>
-                            <div class="plan-feature">Build up to 120 months of payment history</div>
-                            <div class="plan-feature">Cancel any time without penalty</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Plan 2 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">MAGNUM 99</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$99<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$5,000</div>
-                                <div class="installment-text">installment account reported</div>
-                            </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
-                            <div class="plan-feature">Build personal credit for business purposes</div>
-                            <div class="plan-feature">Build up to 120 months of payment history</div>
-                            <div class="plan-feature">Cancel any time without penalty</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Plan 3 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">MAGNUM 199</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$199<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$10,000</div>
-                                <div class="installment-text">installment account reported</div>
-                            </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">Demonstrate repayment on larger credit obligations</div>
-                            <div class="plan-feature">Build personal credit for business purposes</div>
-                            <div class="plan-feature">Build up to 120 months of payment history</div>
-                            <div class="plan-feature">Cancel any time without penalty</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Apply Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Free with Deposit Plans (Hidden by default) -->
-                <div class="pricing-plans deposit-based-plans">
-                    <!-- Deposit Plan 1 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">SECURED 500</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$0<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$500</div>
-                                <div class="installment-text">minimum deposit required</div>
-                            </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">No monthly fees</div>
-                            <div class="plan-feature">Build credit with your secured deposit</div>
-                            <div class="plan-feature">Full deposit returned upon completion</div>
-                            <div class="plan-feature">Deposit is fully insured</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Deposit Plan 2 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">SECURED 1000</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$0<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$1,000</div>
-                                <div class="installment-text">minimum deposit required</div>
-                            </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">No monthly fees</div>
-                            <div class="plan-feature">Higher credit limit reported</div>
-                            <div class="plan-feature">Interest paid on your deposit</div>
-                            <div class="plan-feature">Priority credit reporting</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Deposit Plan 3 -->
-                    <div class="pricing-plan animate-fade-up">
-                        <div class="plan-header">
-                            <h3 class="plan-name">SECURED 2500</h3>
-                        </div>
-                        <div class="plan-price-container">
-                            <div class="monthly-price">$0<span>/mo</span></div>
-                            <div class="total-amount">
-                                <div class="amount">$2,500</div>
-                                <div class="installment-text">minimum deposit required</div>
-                            </div>
-                        </div>
-                        <div class="plan-features">
-                            <div class="plan-feature">No monthly fees</div>
-                            <div class="plan-feature">Premium credit reporting</div>
-                            <div class="plan-feature">Higher interest rate on deposit</div>
-                            <div class="plan-feature">Credit monitoring included</div>
-                        </div>
-                        <div class="plan-actions">
-                            <a href="#" class="apply-btn">Start Now <span>&rsaquo;</span></a>
-                            <a href="#" class="learn-more-btn">Learn More <span>&rsaquo;</span></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="amortization-link animate-fade-up">
-                    <a href="#">View Amortization Table <span>&rsaquo;</span></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Resources Section -->
-        <section class="resources-section" id="resources">
-            <div class="resources-content animate-on-scroll">
-                <h2 class="animate-fade-up">Resources</h2>
-                
-                <div class="resources-carousel-wrapper animate-fade-up">
-                    <div class="resources-carousel">
-                        <div class="carousel-nav-btn carousel-prev">
-                            <span>&lsaquo;</span>
                         </div>
                         
-                        <div class="carousel-container" id="resource-carousel">
-                            <!-- Resource Card 1 -->
-                            <div class="resource-card animate-fade-up">
-                                <div class="resource-image">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_pdj8z7.png" alt="Blue Piggy Bank" loading="lazy" class="img-fluid">
+                        <!-- Resource Card 3 -->
+                        <div class="resource-card animate-fade-up">
+                            <div class="resource-image">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_1_gvtack.png" alt="Credit Cards on Desk" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">BLOG</div>
+                                <h3 class="resource-title">Revolving Credit Simplified: The Basics, Benefits, and Examples</h3>
+                                <div class="resource-text">
+                                    Learn about the fundamentals of revolving credit, its advantages, and real-world applications.
                                 </div>
-                                <div class="resource-content">
-                                    <div class="resource-category">BLOG</div>
-                                    <h3 class="resource-title">Revolving Credit Simplified: The Basics, Benefits, and Examples</h3>
-                                    <div class="resource-text">
-                                        Learn about the fundamentals of revolving credit, its advantages, and real-world applications.
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Second slide (hidden initially) -->
+                        <!-- Resource Card 4 -->
+                        <div class="resource-card slide-2 animate-fade-up">
+                            <div class="resource-image">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745387076/iStock-940283392_msj6a7.jpg" alt="Financial Planning" loading="lazy">
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">BLOG</div>
+                                <h3 class="resource-title">Financial Planning for Your Future: Tips and Strategies</h3>
+                                <div class="resource-text">
+                                    Discover practical advice on planning your financial future and building a solid foundation.
                                 </div>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Resource Card 5 (No Image) - Second slide -->
+                        <div class="resource-card no-image slide-2 animate-fade-up">
+                            <div class="resource-content">
+                                <div class="resource-category">NEWS</div>
+                                <h3 class="resource-title">Financial Literacy Month: How to Improve Your Credit Knowledge</h3>
+                                <div class="resource-text">
+                                    April is Financial Literacy Month, a perfect time to focus on improving your understanding of credit and financial management principles...
+                                </div>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                            </div>
+                        </div>
+                        
+                        <!-- Resource Card 6 - Second slide -->
+                        <div class="resource-card slide-2 animate-fade-up">
+                            <div class="resource-image">
+                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_pdj8z7.png" alt="Blue Piggy Bank" loading="lazy" class="img-fluid">
+                            </div>
+                            <div class="resource-content">
+                                <div class="resource-category">BLOG</div>
+                                <h3 class="resource-title">Understanding Credit Utilization and Its Impact on Your Score</h3>
+                                <div class="resource-text">
+                                    Learn how credit utilization affects your credit score and strategies to keep it in the ideal range.
+                                </div>
+                                <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="carousel-nav-btn carousel-next">
+                        <span>&rsaquo;</span>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" data-slide="0"></div>
+                    <div class="carousel-dot" data-slide="1"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="cta-container animate-on-scroll">
+            <div class="cta-content animate-fade-up">
+                <h2>Get Started with <span class="magnum-text">MAGNUM</span></h2>
+                <p>Open an account in minutes</p>
+                <a href="#" class="cta-button">Get Started <span>&rsaquo;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-top">
+                        <div class="footer-nav">
+                            <div class="footer-nav-column">
+                                <h3 class="footer-nav-heading">Products</h3>
+                                <ul class="footer-nav-links">
+                                    <li><a href="#">Fee based Credit</a></li>
+                                    <li><a href="#">Free with Deposit</a></li>
+                                </ul>
                             </div>
                             
-                            <!-- Resource Card 2 (No Image) -->
-                            <div class="resource-card no-image animate-fade-up">
-                                <div class="resource-content">
-                                    <div class="resource-category">NEWS</div>
-                                    <h3 class="resource-title">Austin Capital Bank CEO Appointed to Consumer Financial Protection Bureau Advisory Council</h3>
-                                    <div class="resource-text">
-                                        We all must look at the role we play in mitigating the spread and impact of viruses to ensure a better outcome. Due to concerns for the safety and health regarding the...
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
-                                </div>
+                            <div class="footer-nav-column">
+                                <h3 class="footer-nav-heading">About Us</h3>
+                                <ul class="footer-nav-links">
+                                    <li><a href="#">Company</a></li>
+                                    <li><a href="#">Team</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                </ul>
                             </div>
                             
-                            <!-- Resource Card 3 -->
-                            <div class="resource-card animate-fade-up">
-                                <div class="resource-image">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_1_gvtack.png" alt="Credit Cards on Desk" loading="lazy" class="img-fluid">
-                                </div>
-                                <div class="resource-content">
-                                    <div class="resource-category">BLOG</div>
-                                    <h3 class="resource-title">Revolving Credit Simplified: The Basics, Benefits, and Examples</h3>
-                                    <div class="resource-text">
-                                        Learn about the fundamentals of revolving credit, its advantages, and real-world applications.
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
-                                </div>
+                            <div class="footer-nav-column">
+                                <h3 class="footer-nav-heading">Blog</h3>
+                                <ul class="footer-nav-links">
+                                    <li><a href="#">Latest News</a></li>
+                                    <li><a href="#">Credit Tips</a></li>
+                                    <li><a href="#">Financial Education</a></li>
+                                </ul>
                             </div>
                             
-                            <!-- Second slide (hidden initially) -->
-                            <!-- Resource Card 4 -->
-                            <div class="resource-card slide-2 animate-fade-up">
-                                <div class="resource-image">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745387076/iStock-940283392_msj6a7.jpg" alt="Financial Planning" loading="lazy">
-                                </div>
-                                <div class="resource-content">
-                                    <div class="resource-category">BLOG</div>
-                                    <h3 class="resource-title">Financial Planning for Your Future: Tips and Strategies</h3>
-                                    <div class="resource-text">
-                                        Discover practical advice on planning your financial future and building a solid foundation.
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
-                                </div>
-                            </div>
-                            
-                            <!-- Resource Card 5 (No Image) - Second slide -->
-                            <div class="resource-card no-image slide-2 animate-fade-up">
-                                <div class="resource-content">
-                                    <div class="resource-category">NEWS</div>
-                                    <h3 class="resource-title">Financial Literacy Month: How to Improve Your Credit Knowledge</h3>
-                                    <div class="resource-text">
-                                        April is Financial Literacy Month, a perfect time to focus on improving your understanding of credit and financial management principles...
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
-                                </div>
-                            </div>
-                            
-                            <!-- Resource Card 6 - Second slide -->
-                            <div class="resource-card slide-2 animate-fade-up">
-                                <div class="resource-image">
-                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745386780/Image_pdj8z7.png" alt="Blue Piggy Bank" loading="lazy" class="img-fluid">
-                                </div>
-                                <div class="resource-content">
-                                    <div class="resource-category">BLOG</div>
-                                    <h3 class="resource-title">Understanding Credit Utilization and Its Impact on Your Score</h3>
-                                    <div class="resource-text">
-                                        Learn how credit utilization affects your credit score and strategies to keep it in the ideal range.
-                                    </div>
-                                    <a href="#" class="resource-link">Read More <span>&rsaquo;</span></a>
-                                </div>
+                            <div class="footer-nav-column">
+                                <h3 class="footer-nav-heading">FAQs</h3>
+                                <ul class="footer-nav-links">
+                                    <li><a href="#">Common Questions</a></li>
+                                    <li><a href="#">Support</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                </ul>
                             </div>
                         </div>
                         
-                        <div class="carousel-nav-btn carousel-next">
-                            <span>&rsaquo;</span>
+                        <div class="footer-social">
+                            <h3 class="footer-nav-heading">Connect with us</h3>
+                            <div class="social-icons">
+                                <a href="https://www.facebook.com/MagnumCredit/" target="_blank" class="social-icon">
+                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745385358/Icon_xox7cj.svg" loading="lazy" alt="Facebook">
+                                </a>
+                                <a href="https://www.linkedin.com/company/magnum-groupbhopal/?originalSubdomain=in" target="_blank" class="social-icon">
+                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745385358/Icon_1_smrmpm.svg" loading="lazy" alt="LinkedIn">
+                                </a>
+                                <a href="https://www.instagram.com/magnum_by_creditstrong/?locale=ne_NP&hl=cs" target="_blank" class="social-icon social-icon-insta">
+                                    <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1746163237/insta-icon-removebg-preview_kfmz9d.png" loading="lazy" alt="Twitter">
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="carousel-dots">
-                        <div class="carousel-dot active" data-slide="0"></div>
-                        <div class="carousel-dot" data-slide="1"></div>
+                    <div class="footer-disclaimers">
+                        <div class="disclaimer-text">
+                            Account holders must be at least 18 years old and a citizen of the United States or permanent resident with a valid social security number. Applicants for accounts are subject to verification of identity. A valid bank account or debit card account are required for payment. All loans are subject to consumer report review and approval. Credit Strong is NOT a credit repair service and does not remove negative credit history from your credit profile. Disclaimer: Credit profile improvement is not guaranteed. Changes in your credit score reflect individually specific financial behavior and history. Failure to make minimum required loan payments on-time may result in your loan payment(s) being reported as delinquent to credit bureaus which may negatively impact your credit profile.
+                        </div>
+                        
+                        <div class="disclaimer-text">
+                            Testimonial Disclaimer: Individual results may vary. Unique experiences and past performance for individuals do not guarantee future results for other individuals. Testimonials may not be representative of all individuals and certain individuals may have inferior results than indicated in testimonials.
+                        </div>
+                        
+                        <div class="disclaimer-text">
+                            *All ratings as of March 31, 2020
+                        </div>
+                        
+                        <div class="disclaimer-text">
+                            Credit Strong® is a registered trademark of Austin Capital Bank SSB. FICO® is a registered Trademark of Fair Isaac Corporation. Equifax® and Paynet® are registered trademarks of Equifax, Inc.
+                        </div>
+                        
+                        <div class="disclaimer-text">
+                            Austin Capital Bank SSB. Member FDIC. Equal Housing Lender.
+                        </div>
+                    </div>
+                    
+                    <div class="footer-bottom">
+                        CreditStrong © <span id="footer-year"></span>  , All Rights Reserved.
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Call to Action Section -->
-        <section class="cta-section">
-            <div class="cta-container animate-on-scroll">
-                <div class="cta-content animate-fade-up">
-                    <h2>Get Started with <span class="magnum-text">MAGNUM</span></h2>
-                    <p>Open an account in minutes</p>
-                    <a href="#" class="cta-button">Get Started <span>&rsaquo;</span></a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-container">
-                <div class="footer-top">
-                    <div class="footer-nav">
-                        <div class="footer-nav-column">
-                            <h3 class="footer-nav-heading">Products</h3>
-                            <ul class="footer-nav-links">
-                                <li><a href="#">Fee based Credit</a></li>
-                                <li><a href="#">Free with Deposit</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-nav-column">
-                            <h3 class="footer-nav-heading">About Us</h3>
-                            <ul class="footer-nav-links">
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Careers</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-nav-column">
-                            <h3 class="footer-nav-heading">Blog</h3>
-                            <ul class="footer-nav-links">
-                                <li><a href="#">Latest News</a></li>
-                                <li><a href="#">Credit Tips</a></li>
-                                <li><a href="#">Financial Education</a></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="footer-nav-column">
-                            <h3 class="footer-nav-heading">FAQs</h3>
-                            <ul class="footer-nav-links">
-                                <li><a href="#">Common Questions</a></li>
-                                <li><a href="#">Support</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-social">
-                        <h3 class="footer-nav-heading">Connect with us</h3>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/MagnumCredit/" target="_blank" class="social-icon">
-                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745385358/Icon_xox7cj.svg" loading="lazy" alt="Facebook">
-                            </a>
-                            <a href="https://www.linkedin.com/company/magnum-groupbhopal/?originalSubdomain=in" target="_blank" class="social-icon">
-                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1745385358/Icon_1_smrmpm.svg" loading="lazy" alt="LinkedIn">
-                            </a>
-                            <a href="https://www.instagram.com/magnum_by_creditstrong/?locale=ne_NP&hl=cs" target="_blank" class="social-icon social-icon-insta">
-                                <img loading="lazy" src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1746163237/insta-icon-removebg-preview_kfmz9d.png" loading="lazy" alt="Twitter">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-disclaimers">
-                    <div class="disclaimer-text">
-                        Account holders must be at least 18 years old and a citizen of the United States or permanent resident with a valid social security number. Applicants for accounts are subject to verification of identity. A valid bank account or debit card account are required for payment. All loans are subject to consumer report review and approval. Credit Strong is NOT a credit repair service and does not remove negative credit history from your credit profile. Disclaimer: Credit profile improvement is not guaranteed. Changes in your credit score reflect individually specific financial behavior and history. Failure to make minimum required loan payments on-time may result in your loan payment(s) being reported as delinquent to credit bureaus which may negatively impact your credit profile.
-                    </div>
-                    
-                    <div class="disclaimer-text">
-                        Testimonial Disclaimer: Individual results may vary. Unique experiences and past performance for individuals do not guarantee future results for other individuals. Testimonials may not be representative of all individuals and certain individuals may have inferior results than indicated in testimonials.
-                    </div>
-                    
-                    <div class="disclaimer-text">
-                        *All ratings as of March 31, 2020
-                    </div>
-                    
-                    <div class="disclaimer-text">
-                        Credit Strong® is a registered trademark of Austin Capital Bank SSB. FICO® is a registered Trademark of Fair Isaac Corporation. Equifax® and Paynet® are registered trademarks of Equifax, Inc.
-                    </div>
-                    
-                    <div class="disclaimer-text">
-                        Austin Capital Bank SSB. Member FDIC. Equal Housing Lender.
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    CreditStrong © <span id="footer-year"></span>  , All Rights Reserved.
-                </div>
-            </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-Y7iDQ5m9txUZj1bw/ItfFx7qzRpDnvGQdg/DUAVcjAHtQiO3h5v9YIrh4Jp6p2ia" crossorigin="anonymous"></script>
     <script src="index.js"></script>
