@@ -37,19 +37,19 @@ function initMainCarousel() {
     document.getElementById('current-slide').textContent = currentSlide + 1;
     
     // Add click handlers for the navigation buttons
-    const prevButton = document.querySelector('.carousel-prev');
-    const nextButton = document.querySelector('.carousel-next');
+    const prevButton = document.getElementById('prevBtn');
+    const nextButton = document.getElementById('nextBtn');
     
     if (prevButton && nextButton) {
         prevButton.addEventListener('click', function(e) {
-            // Prevent default anchor behavior
+            // Prevent default button behavior
             e.preventDefault();
             currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
             updateSlide();
         });
         
         nextButton.addEventListener('click', function(e) {
-            // Prevent default anchor behavior
+            // Prevent default button behavior
             e.preventDefault();
             currentSlide = (currentSlide + 1) % totalSlides;
             updateSlide();

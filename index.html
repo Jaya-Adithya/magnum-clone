@@ -146,10 +146,18 @@
         
         <!-- Carousel Navigation -->
         <div class="carousel-nav-outer">
-            <div class="carousel-nav">
-                <a class="btn btn-sm"><span class="arrow-size arrow-left"> <img src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt=""></span></a>
-                <span id="current-slide" class="text-white arrow-text">1</span><span class="text-white-50">/6</span>
-                <a class="btn btn-sm mx-2"><span class="arrow-size"> <img src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt=""></span></a>
+            <div class="navigation-container">
+                <div>
+                  <button class="left-arrow-container" id="prevBtn"><img class="left-arrow"
+                      src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt="Left arrow" /></button>
+                </div>
+                <div class="navigation-status">
+                  <p><span id="current-slide">1</span><span class="nav-status-text">/6</span></p>
+                </div>
+                <div>
+                  <button class="right-arrow-container" id="nextBtn"><img class="right-arrow"
+                      src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt="Right arrow" /></button>
+                </div>
             </div>
         </div>
     </section>
@@ -236,9 +244,52 @@
                 </div>
           
                 <div class="process-arrows">
-                    <div class="arrow arrow-1 animate-fade-right"></div>
-                    <div class="arrow arrow-2 animate-fade-right"></div>
-                    <div class="arrow arrow-3 animate-fade-right"></div>
+                    <div class="connection-path">
+                        <!-- First connection -->
+                        <div class="path-segment">
+                            <div class="dot-start"></div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="arrow-indicator">
+                                <img src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt="Arrow">
+                            </div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="dot-end"></div>
+                        </div>
+                        
+                        <!-- Second connection -->
+                        <div class="path-segment">
+                            <div class="dot-start"></div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="arrow-indicator">
+                                <img src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt="Arrow">
+                            </div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="dot-end"></div>
+                        </div>
+                        
+                        <!-- Third connection -->
+                        <div class="path-segment">
+                            <div class="dot-start"></div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="arrow-indicator">
+                                <img src="https://res.cloudinary.com/dwn7j1uen/image/upload/v1747299863/arrow_1_bcmuvg.svg" alt="Arrow">
+                            </div>
+                            <div class="dotted-line">
+                                <div class="moving-dot"></div>
+                            </div>
+                            <div class="dot-end"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

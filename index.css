@@ -252,8 +252,15 @@ body, html {
 }
 
 .carousel-nav {
-    z-index: 10;
+    /* Hide or override old styles */
+    display: none;
 }
+
+.carousel-prev, .carousel-next {
+    /* Hide or override old styles */
+    display: none;
+}
+
 .arrow-text{
     font-size: 40px;
     color: #ffffff;
@@ -475,43 +482,314 @@ body, html {
 /* Process Arrows Container */
 .process-arrows {
     position: absolute;
-    top: 55px; /* align vertically between circles */
-    left: 0;
-    width: 100%;
-    z-index: 1;
+    top: 30px; /* Aligned with center of step icons */
+    width: 94%; /* Fine-tuned width for better alignment */
+    z-index: 100;
+    left: 1%; /* Centered the container */
     pointer-events: none;
+    opacity: 1; /* Start visible so we can see each path segment */
 }
 
-/* Arrow Base Style */
-.arrow {
+/* Main Connection Path Container */
+.connection-path {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+/* Individual Path Segments - precisely positioned to align with circle centers */
+.path-segment {
     position: absolute;
-    top: 0;
-    height: 20px;
-    width: 160px; /* fixed nice width */
-    background: url('https://res.cloudinary.com/dwn7j1uen/image/upload/v1745817105/Screenshot_2025-04-28_104053-removebg-preview_po67mx.png') no-repeat center;
-    background-size: contain;
-    z-index: 5;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    opacity: 0; /* Initially hidden */
+    animation: fadeInPath 0.5s ease-out forwards;
 }
 
-/* Position Each Arrow */
-.arrow-1 {
-    left: calc(25% - 60px); /* center of first icon */
+/* Position each segment more precisely */
+.path-segment:nth-child(1) {
+    left: 14.5%; /* First path starts further left */
+    width: 20.5%; /* Slightly wider than others */
+    animation-delay: 0s;
+    top: 10px;
 }
 
-.arrow-2 {
-    left: calc(50% - 60px); /* center of second icon */
+.path-segment:nth-child(2) {
+    left: 41.5%; /* Keep second path in middle */
+    width: 21%; /* Slightly narrower */
+    animation-delay: 3s;
+    top: 10px;
 }
 
-.arrow-3 {
-    left: calc(75% - 60px); /* center of third icon */
+.path-segment:nth-child(3) {
+    left: 68.8%; /* Third path starts slightly more to the right */
+    width: 21%; /* Wider than others */
+    animation-delay: 6s;
+    top: 10px;
 }
 
+/* Improve dot styling for better UI appearance */
+.dot-start, .dot-end {
+    width: 18px; /* Size for good visibility */
+    height: 18px;
+    border-radius: 50%;
+    background-color: #4580c0;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    transform: scale(0);
+    animation: appearDot 0.5s ease-out forwards;
+    margin-left: -9px; /* Precisely center dot */
+    margin-right: -9px; /* Precisely center dot */
+    box-shadow: 0 0 0 3px rgba(69, 128, 192, 0.2); /* Add subtle glow effect */
+}
 
+/* Improve dotted line appearance */
+.dotted-line {
+    flex-grow: 1;
+    height: 3px; /* Slightly thicker for better visibility */
+    background-image: linear-gradient(to right, #4580c0 50%, transparent 50%);
+    background-size: 10px 3px; /* Slightly larger dots */
+    background-repeat: repeat-x;
+    position: relative;
+    overflow: hidden;
+    transform: scaleX(0);
+    animation: expandLine 0.8s ease-out forwards;
+}
 
-/* Responsive adjustments */
+/* Improve arrow indicator styling */
+.arrow-indicator {
+    width: 28px; /* Slightly larger */
+    height: 28px;
+    background-color: rgba(69, 128, 192, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    flex-shrink: 0;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0);
+    animation: appearArrow 0.5s ease-out forwards;
+    box-shadow: 0 0 0 2px rgba(69, 128, 192, 0.1); /* Subtle glow effect */
+}
+
+.arrow-indicator img {
+    width: 12px; /* Slightly larger arrow */
+    height: 18px;
+}
+
+/* Stagger dot animations within each path */
+.path-segment:nth-child(1) .dot-start {
+    animation-delay: 0.5s; /* Appears 0.5s after first path appears */
+}
+
+.path-segment:nth-child(1) .dot-end {
+    animation-delay: 0.5s; /* Both dots appear together */
+}
+
+.path-segment:nth-child(2) .dot-start {
+    animation-delay: 3.5s; /* Appears 0.5s after second path appears */
+}
+
+.path-segment:nth-child(2) .dot-end {
+    animation-delay: 3.5s;
+}
+
+.path-segment:nth-child(3) .dot-start {
+    animation-delay: 6.5s; /* Appears 0.5s after third path appears */
+}
+
+.path-segment:nth-child(3) .dot-end {
+    animation-delay: 6.5s;
+}
+
+/* Dotted line */
+.dotted-line {
+    flex-grow: 1;
+    height: 2px;
+    background-image: linear-gradient(to right, #4580c0 50%, transparent 50%);
+    background-size: 8px 2px;
+    background-repeat: repeat-x;
+    position: relative;
+    overflow: hidden;
+    transform: scaleX(0);
+    animation: expandLine 0.8s ease-out forwards;
+}
+
+/* Stagger line animations within each path */
+.path-segment:nth-child(1) .dotted-line:nth-child(2) {
+    animation-delay: 1s; /* Lines appear 1s after first path appears */
+    transform-origin: left;
+}
+
+.path-segment:nth-child(1) .dotted-line:nth-child(4) {
+    animation-delay: 1s;
+    transform-origin: right;
+}
+
+.path-segment:nth-child(2) .dotted-line:nth-child(2) {
+    animation-delay: 4s; /* Lines appear 1s after second path appears */
+    transform-origin: left;
+}
+
+.path-segment:nth-child(2) .dotted-line:nth-child(4) {
+    animation-delay: 4s;
+    transform-origin: right;
+}
+
+.path-segment:nth-child(3) .dotted-line:nth-child(2) {
+    animation-delay: 7s; /* Lines appear 1s after third path appears */
+    transform-origin: left;
+}
+
+.path-segment:nth-child(3) .dotted-line:nth-child(4) {
+    animation-delay: 7s;
+    transform-origin: right;
+}
+
+/* Arrow indicator */
+.arrow-indicator {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(69, 128, 192, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    flex-shrink: 0;
+    z-index: 2;
+    opacity: 0;
+    transform: scale(0);
+    animation: appearArrow 0.5s ease-out forwards;
+}
+
+.arrow-indicator img {
+    width: 10px;
+    height: 16px;
+}
+
+/* Stagger arrow animations within each path */
+.path-segment:nth-child(1) .arrow-indicator {
+    animation-delay: 1.5s; /* Arrow appears 1.5s after first path appears */
+}
+
+.path-segment:nth-child(2) .arrow-indicator {
+    animation-delay: 4.5s; /* Arrow appears 1.5s after second path appears */
+}
+
+.path-segment:nth-child(3) .arrow-indicator {
+    animation-delay: 7.5s; /* Arrow appears 1.5s after third path appears */
+}
+
+/* Moving dot animation - starts after lines appear */
+.moving-dot {
+    position: absolute;
+    top: -3px; /* Center dot vertically */
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background-color: #4580c0;
+    border-radius: 50%;
+    opacity: 0;
+    animation: moveDot 2s linear infinite;
+}
+
+/* Stagger moving dot animations within each path */
+.path-segment:nth-child(1) .dotted-line:nth-child(2) .moving-dot {
+    animation-delay: 1.2s; /* Moving dots appear 1.2s after first path appears */
+}
+
+.path-segment:nth-child(1) .dotted-line:nth-child(4) .moving-dot {
+    animation-delay: 1.2s;
+}
+
+.path-segment:nth-child(2) .dotted-line:nth-child(2) .moving-dot {
+    animation-delay: 4.2s; /* Moving dots appear 1.2s after second path appears */
+}
+
+.path-segment:nth-child(2) .dotted-line:nth-child(4) .moving-dot {
+    animation-delay: 4.2s;
+}
+
+.path-segment:nth-child(3) .dotted-line:nth-child(2) .moving-dot {
+    animation-delay: 7.2s; /* Moving dots appear 1.2s after third path appears */
+}
+
+.path-segment:nth-child(3) .dotted-line:nth-child(4) .moving-dot {
+    animation-delay: 7.2s;
+}
+
+/* Keyframe animations */
+@keyframes fadeInPath {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appearDot {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes expandLine {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes appearArrow {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes moveDot {
+    0% {
+        left: 0;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Responsive Adjustments */
 @media (max-width: 992px) {
     .process-arrows {
-        display: none;
+        display: none; /* Hide on mobile to prevent overlap */
     }
     
     .process-step {
@@ -3096,32 +3374,57 @@ transform: rotate(-180deg);
         max-height: calc(100vh - 80px);
         overflow-y: auto;
         border-top: 1px solid rgba(255,255,255,0.1);
+        width: 100%;
+        transform: translateY(0);
+        transition: all 0.3s ease;
     }
     
-    /* Improve nav items spacing and visibility */
+    /* Fix nav items visibility and spacing */
     .navbar-nav {
-        padding: 0;
+        padding: 10px 0;
     }
     
+    /* Improve nav link appearance */
     .navbar-nav .nav-link {
-        padding: 15px 20px;
+        padding: 12px 20px;
         color: #ffffff !important;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
         font-size: 16px;
+        font-weight: 400;
         transition: background-color 0.3s;
+        display: block;
+        width: 100%;
+        text-align: left;
     }
     
     .navbar-nav .nav-link:hover {
         background-color: rgba(255,255,255,0.1);
+        color: #ffffff !important;
     }
     
+    /* Fix last item styling */
     .navbar-nav .nav-link:last-child {
         border-bottom: none;
     }
     
-    /* Hide Get Started button in navbar dropdown */
+    /* Add special styling for Get Started button in navbar */
     .navbar-nav .btn-primary {
-        display: none;
+        margin: 10px 20px;
+        width: calc(100% - 40px);
+        display: flex;
+        justify-content: center;
+    }
+    
+    /* Fix navbar toggler spacing */
+    .navbar-toggler {
+        margin-right: 10px;
+        border: 1px solid rgba(255,255,255,0.3);
+        padding: 6px 10px;
+    }
+    
+    /* Make navbar toggler icon white and more visible */
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
     }
 }
 
@@ -3284,6 +3587,99 @@ section {
     background-color: #4580c0;
     width: 20px;
     border-radius: 5px;
+}
+
+/* Ensure new navigation styles take priority */
+.navigation-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 100;
+}
+
+#current-slide {
+    font-family: Poppins;
+    font-size: 35px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    line-height: 48px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.navigation-status {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.navigation-status p {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-status-text {
+    font-family: Poppins;
+    font-size: 25px;
+    color: #ffffff;
+    text-decoration: none solid rgb(255, 255, 255);
+    line-height: 48px;
+    text-align: center;
+    font-weight: 600;
+    opacity: 0.4;
+}
+
+.left-arrow-container, .right-arrow-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition-property: background-color;
+    transition-duration: 0.6s;
+    border: 0px solid;
+}
+
+.right-arrow-container {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.left-arrow, .right-arrow {
+    height: 20px;
+    width: 12px;
+}
+
+.left-arrow {
+    transform: rotate(180deg);
+}
+
+.left-arrow-container:hover, .right-arrow-container:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure the carousel navigation outer container is properly positioned */
+.carousel-nav-outer {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+    z-index: 100;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .carousel-nav-outer {
+        bottom: 20px;
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .navigation-container {
+        justify-content: center;
+    }
 }
 
 
